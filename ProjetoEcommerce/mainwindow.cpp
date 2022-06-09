@@ -1,0 +1,20 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <admin.h>
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    //    ui->widgetHome->hide();
+    //    ui->tabWidget->setTabText(0, "Cuzin");
+    //    Admin adm;
+    //    adm.exec();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
