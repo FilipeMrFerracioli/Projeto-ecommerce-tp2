@@ -13,6 +13,7 @@
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -38,16 +39,16 @@ public:
     QGridLayout *gridLayout;
     QTabWidget *tabWidgetCliente;
     QWidget *tab_Home;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QComboBox *comboBoxListaProduto;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
     QTextEdit *textEditDescricaoProduto;
     QPushButton *pushButtonAddCarrinho;
-    QWidget *widget2;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_4;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_3;
@@ -59,6 +60,10 @@ public:
     QComboBox *comboBoxResumoPedido;
     QPushButton *pushButtonRemoverCarrinho;
     QPushButton *pushButtonProsseguir;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_10;
+    QLabel *label_7;
+    QDoubleSpinBox *doubleSpinBox;
     QWidget *tab_Login;
     QWidget *layoutWidget_6;
     QVBoxLayout *verticalLayout_19;
@@ -84,7 +89,7 @@ public:
     QPushButton *pushButtonLogin;
     QFrame *line;
     QWidget *tab_Acc;
-    QWidget *widget3;
+    QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_9;
     QVBoxLayout *verticalLayout_5;
     QLabel *label_24;
@@ -99,7 +104,7 @@ public:
     QVBoxLayout *verticalLayout_8;
     QLabel *label_9;
     QLineEdit *lineEditAccCPF;
-    QWidget *widget4;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButtonAccCancelar;
     QPushButton *pushButtonAccSalvar;
@@ -125,57 +130,57 @@ public:
         tabWidgetCliente->setObjectName(QString::fromUtf8("tabWidgetCliente"));
         tab_Home = new QWidget();
         tab_Home->setObjectName(QString::fromUtf8("tab_Home"));
-        widget = new QWidget(tab_Home);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 0, 171, 62));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(tab_Home);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(0, 0, 171, 62));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         verticalLayout->addWidget(label_2);
 
-        comboBoxListaProduto = new QComboBox(widget);
+        comboBoxListaProduto = new QComboBox(layoutWidget);
         comboBoxListaProduto->setObjectName(QString::fromUtf8("comboBoxListaProduto"));
 
         verticalLayout->addWidget(comboBoxListaProduto);
 
-        widget1 = new QWidget(tab_Home);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(250, 0, 258, 301));
-        verticalLayout_2 = new QVBoxLayout(widget1);
+        layoutWidget1 = new QWidget(tab_Home);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(250, 0, 258, 301));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget1);
+        label = new QLabel(layoutWidget1);
         label->setObjectName(QString::fromUtf8("label"));
 
         verticalLayout_2->addWidget(label);
 
-        textEditDescricaoProduto = new QTextEdit(widget1);
+        textEditDescricaoProduto = new QTextEdit(layoutWidget1);
         textEditDescricaoProduto->setObjectName(QString::fromUtf8("textEditDescricaoProduto"));
 
         verticalLayout_2->addWidget(textEditDescricaoProduto);
 
-        pushButtonAddCarrinho = new QPushButton(widget1);
+        pushButtonAddCarrinho = new QPushButton(layoutWidget1);
         pushButtonAddCarrinho->setObjectName(QString::fromUtf8("pushButtonAddCarrinho"));
 
         verticalLayout_2->addWidget(pushButtonAddCarrinho);
 
-        widget2 = new QWidget(tab_Home);
-        widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(590, 0, 260, 376));
-        verticalLayout_4 = new QVBoxLayout(widget2);
+        layoutWidget2 = new QWidget(tab_Home);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(590, 0, 260, 376));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget2);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        label_3 = new QLabel(widget2);
+        label_3 = new QLabel(layoutWidget2);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         verticalLayout_3->addWidget(label_3);
 
-        textEditResumoPedido = new QTextEdit(widget2);
+        textEditResumoPedido = new QTextEdit(layoutWidget2);
         textEditResumoPedido->setObjectName(QString::fromUtf8("textEditResumoPedido"));
 
         verticalLayout_3->addWidget(textEditResumoPedido);
@@ -185,12 +190,12 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_6 = new QLabel(widget2);
+        label_6 = new QLabel(layoutWidget2);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         horizontalLayout_2->addWidget(label_6);
 
-        lineEditTotalPedido = new QLineEdit(widget2);
+        lineEditTotalPedido = new QLineEdit(layoutWidget2);
         lineEditTotalPedido->setObjectName(QString::fromUtf8("lineEditTotalPedido"));
 
         horizontalLayout_2->addWidget(lineEditTotalPedido);
@@ -200,12 +205,12 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        comboBoxResumoPedido = new QComboBox(widget2);
+        comboBoxResumoPedido = new QComboBox(layoutWidget2);
         comboBoxResumoPedido->setObjectName(QString::fromUtf8("comboBoxResumoPedido"));
 
         horizontalLayout->addWidget(comboBoxResumoPedido);
 
-        pushButtonRemoverCarrinho = new QPushButton(widget2);
+        pushButtonRemoverCarrinho = new QPushButton(layoutWidget2);
         pushButtonRemoverCarrinho->setObjectName(QString::fromUtf8("pushButtonRemoverCarrinho"));
 
         horizontalLayout->addWidget(pushButtonRemoverCarrinho);
@@ -213,10 +218,27 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout);
 
-        pushButtonProsseguir = new QPushButton(widget2);
+        pushButtonProsseguir = new QPushButton(layoutWidget2);
         pushButtonProsseguir->setObjectName(QString::fromUtf8("pushButtonProsseguir"));
 
         verticalLayout_4->addWidget(pushButtonProsseguir);
+
+        widget = new QWidget(tab_Home);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(180, 0, 52, 62));
+        verticalLayout_10 = new QVBoxLayout(widget);
+        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
+        verticalLayout_10->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(widget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        verticalLayout_10->addWidget(label_7);
+
+        doubleSpinBox = new QDoubleSpinBox(widget);
+        doubleSpinBox->setObjectName(QString::fromUtf8("doubleSpinBox"));
+        doubleSpinBox->setDecimals(0);
+
+        verticalLayout_10->addWidget(doubleSpinBox);
 
         tabWidgetCliente->addTab(tab_Home, QString());
         tab_Login = new QWidget();
@@ -331,25 +353,25 @@ public:
         tabWidgetCliente->addTab(tab_Login, QString());
         tab_Acc = new QWidget();
         tab_Acc->setObjectName(QString::fromUtf8("tab_Acc"));
-        widget3 = new QWidget(tab_Acc);
-        widget3->setObjectName(QString::fromUtf8("widget3"));
-        widget3->setGeometry(QRect(270, 50, 321, 332));
-        verticalLayout_9 = new QVBoxLayout(widget3);
+        layoutWidget3 = new QWidget(tab_Acc);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(270, 50, 321, 332));
+        verticalLayout_9 = new QVBoxLayout(layoutWidget3);
         verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
         verticalLayout_9->setContentsMargins(0, 0, 0, 0);
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        label_24 = new QLabel(widget3);
+        label_24 = new QLabel(layoutWidget3);
         label_24->setObjectName(QString::fromUtf8("label_24"));
 
         verticalLayout_5->addWidget(label_24);
 
-        label_4 = new QLabel(widget3);
+        label_4 = new QLabel(layoutWidget3);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         verticalLayout_5->addWidget(label_4);
 
-        lineEditAccNome = new QLineEdit(widget3);
+        lineEditAccNome = new QLineEdit(layoutWidget3);
         lineEditAccNome->setObjectName(QString::fromUtf8("lineEditAccNome"));
 
         verticalLayout_5->addWidget(lineEditAccNome);
@@ -359,12 +381,12 @@ public:
 
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        label_5 = new QLabel(widget3);
+        label_5 = new QLabel(layoutWidget3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
         verticalLayout_6->addWidget(label_5);
 
-        lineEditAccEndereco = new QLineEdit(widget3);
+        lineEditAccEndereco = new QLineEdit(layoutWidget3);
         lineEditAccEndereco->setObjectName(QString::fromUtf8("lineEditAccEndereco"));
 
         verticalLayout_6->addWidget(lineEditAccEndereco);
@@ -374,12 +396,12 @@ public:
 
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        label_8 = new QLabel(widget3);
+        label_8 = new QLabel(layoutWidget3);
         label_8->setObjectName(QString::fromUtf8("label_8"));
 
         verticalLayout_7->addWidget(label_8);
 
-        lineEditAccTelefone = new QLineEdit(widget3);
+        lineEditAccTelefone = new QLineEdit(layoutWidget3);
         lineEditAccTelefone->setObjectName(QString::fromUtf8("lineEditAccTelefone"));
 
         verticalLayout_7->addWidget(lineEditAccTelefone);
@@ -389,12 +411,12 @@ public:
 
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        label_9 = new QLabel(widget3);
+        label_9 = new QLabel(layoutWidget3);
         label_9->setObjectName(QString::fromUtf8("label_9"));
 
         verticalLayout_8->addWidget(label_9);
 
-        lineEditAccCPF = new QLineEdit(widget3);
+        lineEditAccCPF = new QLineEdit(layoutWidget3);
         lineEditAccCPF->setObjectName(QString::fromUtf8("lineEditAccCPF"));
 
         verticalLayout_8->addWidget(lineEditAccCPF);
@@ -402,18 +424,18 @@ public:
 
         verticalLayout_9->addLayout(verticalLayout_8);
 
-        widget4 = new QWidget(tab_Acc);
-        widget4->setObjectName(QString::fromUtf8("widget4"));
-        widget4->setGeometry(QRect(390, 400, 195, 31));
-        horizontalLayout_3 = new QHBoxLayout(widget4);
+        layoutWidget4 = new QWidget(tab_Acc);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(390, 400, 195, 31));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButtonAccCancelar = new QPushButton(widget4);
+        pushButtonAccCancelar = new QPushButton(layoutWidget4);
         pushButtonAccCancelar->setObjectName(QString::fromUtf8("pushButtonAccCancelar"));
 
         horizontalLayout_3->addWidget(pushButtonAccCancelar);
 
-        pushButtonAccSalvar = new QPushButton(widget4);
+        pushButtonAccSalvar = new QPushButton(layoutWidget4);
         pushButtonAccSalvar->setObjectName(QString::fromUtf8("pushButtonAccSalvar"));
 
         horizontalLayout_3->addWidget(pushButtonAccSalvar);
@@ -469,6 +491,7 @@ public:
         label_6->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Total:</span></p></body></html>", nullptr));
         pushButtonRemoverCarrinho->setText(QCoreApplication::translate("MainWindow", "Remover", nullptr));
         pushButtonProsseguir->setText(QCoreApplication::translate("MainWindow", "Prosseguir", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Qtd</span></p></body></html>", nullptr));
         tabWidgetCliente->setTabText(tabWidgetCliente->indexOf(tab_Home), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
         label_23->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt;\">Cadastre-se</span></p></body></html>", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Nome</span></p></body></html>", nullptr));

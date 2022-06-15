@@ -10,12 +10,24 @@ CONFIG += c++11
 
 SOURCES += \
     admin.cpp \
+    adminstrador.cpp \
+    cliente.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    pedido.cpp \
+    produto.cpp
 
 HEADERS += \
+    ICRUD.h \
+    ITransformarDados.h \
+    LLDE.h \
+    No.h \
     admin.h \
-    mainwindow.h
+    adminstrador.h \
+    cliente.h \
+    mainwindow.h \
+    pedido.h \
+    produto.h
 
 FORMS += \
     admin.ui \
