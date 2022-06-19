@@ -188,18 +188,17 @@ LLDE<Cliente> Adminstrador::getListaClientes()
     while(!arquivo.eof()) {
         std::getline(arquivo, linha);
 
-        //        if(!linha.empty()) {
         QString line = QString::fromStdString(linha);
 
-        QStringList linha;
+        if(!line.isEmpty()) {
+            QStringList linha;
 
-        linha = line.split(";");
+            linha = line.split(";");
 
-        Cliente cli = Cliente(linha[0], linha[1], linha[2], linha[3]);
-        //        Cliente cli2 = Cliente("1", "1", "1", "12345678910");
+            Cliente cli = Cliente(linha[0], linha[1], linha[2], linha[3]);
 
-        aux.inserirInicio(cli);
-        //        }
+            aux.inserirInicio(cli);
+        }
     }
 
     arquivo.close();
