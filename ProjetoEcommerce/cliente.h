@@ -1,26 +1,27 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
-#include <QString>
 #include <ITransformarDados.h>
-#include <ICRUD.h>
 #include <pedido.h>
+#include <utils.h>
 
 namespace minhaNamespace {
-class Cliente : public ITransformarDados<Cliente>/*, public ICRUD*/
+class Cliente : public ITransformarDados<Cliente>
 {
 private:
-    long id;
+    QString id;
     QString nome;
     QString endereco;
     QString telefone;
     QString cpf;
+    QString nomeArquivo = "baseCliente.txt";
 public:
     Cliente();
     Cliente(QString nome, QString endereco, QString telefone, QString cpf);
     ~Cliente() {};
 
-    long getId() { return id; };
+    QString getId();
+    //    void setId();
 
     void setNome(QString nome);
     QString getNome();
@@ -34,12 +35,14 @@ public:
     void setCpf(QString cpf);
     QString getCpf();
 
+    QString getCliente(QString id, QString nome, QString endereco, QString telefone, QString cpf);
+
     QString consultarPedidos(long id);
 
-    virtual void criar();
-    virtual QString consultar(long id);
-    virtual void atualizar(long id);
-    virtual void deletar(long id);
+    void criar();
+    QString consultar(long id);
+    void atualizar(Cliente cliente);
+    void deletar(long id);
 
     virtual QString montar();
     virtual Cliente desmontar(QString objeto);

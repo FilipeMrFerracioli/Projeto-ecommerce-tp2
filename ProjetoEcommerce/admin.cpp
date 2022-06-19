@@ -9,6 +9,11 @@ Admin::Admin(QWidget *parent) :
     ui->tabWidgetAdminstrador->setTabText(0, "Cliente");
     ui->tabWidgetAdminstrador->setTabText(1, "Produto");
     ui->tabWidgetAdminstrador->setTabText(2, "Pedido");
+
+    minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
+    setGrid(adm.getListaClientes());
+
+
 }
 
 Admin::~Admin()
@@ -28,7 +33,7 @@ void Admin::setGrid(minhaNamespace::LLDE<minhaNamespace::Cliente> lista)
         ui->tableWidgetCliente->insertRow(linha);
 
         QTableWidgetItem *id = 0;
-        id = new QTableWidgetItem(QString::number(lista[i].getId()));
+        id = new QTableWidgetItem(lista[i].getId());
         ui->tableWidgetCliente->setItem(linha, 0, id);
 
         QTableWidgetItem *nome = 0;
@@ -58,7 +63,6 @@ void Admin::on_pushButtonAddCliente_clicked()
 
         minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
         setGrid(adm.getListaClientes());
-//        adm.getListaClientes();
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }
@@ -73,7 +77,25 @@ void Admin::on_pushButtonAttCliente_clicked()
 // RmCliente
 void Admin::on_pushButtonRmCliente_clicked()
 {
+    try {
+        //        throw "erro";
 
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
+
+        QString id = QInputDialog::getText(this, "Remover cliente", "ID:");
+
+        //        std::string str = id.toStdString();
+
+        //        long idd = std::stol(str);
+
+        //        adm.deletar(idd);
+
+        ////        throw QString::fromStdString(str);
+
+        setGrid(adm.getListaClientes());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // LocCliente

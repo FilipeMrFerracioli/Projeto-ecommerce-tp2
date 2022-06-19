@@ -5,6 +5,7 @@
 #include <QInputDialog>
 #include <telaclienteadm.h>
 #include <QMessageBox>
+#include <cliente.h>
 
 namespace Ui {
 class Admin;

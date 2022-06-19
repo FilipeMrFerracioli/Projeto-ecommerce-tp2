@@ -29,49 +29,50 @@ void Adminstrador::criar(Produto produto)
     arquivo.close();
 }
 
-QString Adminstrador::consultar(Cliente cliente)
+QString Adminstrador::consultar(long id)
 {
-    return cliente.consultar(cliente.getId());
+    Cliente cliente;
+    return cliente.consultar(id);
 }
 
-QString Adminstrador::consultar(Produto produto)
-{
-    std::ifstream arquivo;
+//QString Adminstrador::consultar(Produto produto)
+//{
+//    std::ifstream arquivo;
 
-    QString nomeDoArquivo = "baseProduto.txt";
+//    QString nomeDoArquivo = "baseProduto.txt";
 
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
 
-    arquivo.open(nomeDoArquivo.toStdString().c_str());
+//    arquivo.open(nomeDoArquivo.toStdString().c_str());
 
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
 
-    std::string linha = "";
+//    std::string linha = "";
 
-    QString res = "";
-    while(!arquivo.eof()) {
-        std::getline(arquivo, linha);
+//    QString res = "";
+//    while(!arquivo.eof()) {
+//        std::getline(arquivo, linha);
 
-        Produto prod = Produto();
-        prod = prod.desmontar(QString::fromStdString(linha));
-        if(prod.getIdProduto() == produto.getIdProduto()) {
-            res += "ID: " + QString::number(prod.getIdProduto()) + "\n";
-            res += "Descrição: " + prod.getDescricao() + "\n";
-            res += "Quantidade: " + QString::number(prod.getQtdProdutos()) + "\n";
-            res += "Preço (un): " + QString::number(prod.getPrecoUn());
-        }
-    }
+//        Produto prod = Produto();
+//        prod = prod.desmontar(QString::fromStdString(linha));
+//        if(prod.getIdProduto() == produto.getIdProduto()) {
+//            res += "ID: " + QString::number(prod.getIdProduto()) + "\n";
+//            res += "Descrição: " + prod.getDescricao() + "\n";
+//            res += "Quantidade: " + QString::number(prod.getQtdProdutos()) + "\n";
+//            res += "Preço (un): " + QString::number(prod.getPrecoUn());
+//        }
+//    }
 
-    arquivo.close();
+//    arquivo.close();
 
-    if(res.length() == 0) return QString("Produto não encontrado");
+//    if(res.length() == 0) return QString("Produto não encontrado");
 
-    return res;
-}
+//    return res;
+//}
 
 void Adminstrador::atualizar(Cliente cliente)
 {
-    cliente.atualizar(cliente.getId());
+    cliente.atualizar(cliente);
 }
 
 void Adminstrador::atualizar(Produto produto)
@@ -120,54 +121,55 @@ void Adminstrador::atualizar(Produto produto)
     arquivo.close();
 }
 
-void Adminstrador::deletar(Cliente cliente)
+void Adminstrador::deletar(long id)
 {
-    cliente.deletar(cliente.getId());
+    Cliente cliente;
+    cliente.deletar(id);
 }
 
-void Adminstrador::deletar(Produto produto)
-{
-    std::fstream arquivo;
+//void Adminstrador::deletar(Produto produto)
+//{
+//    std::fstream arquivo;
 
-    QString nomeDoArquivo = "baseProduto.txt";
+//    QString nomeDoArquivo = "baseProduto.txt";
 
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
 
-    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
+//    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
 
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
 
-    LLDE<Produto> listaProduto;
+//    LLDE<Produto> listaProduto;
 
-    std::string linha = "";
+//    std::string linha = "";
 
-    while(!arquivo.eof()) {
-        std::getline(arquivo, linha);
+//    while(!arquivo.eof()) {
+//        std::getline(arquivo, linha);
 
-        Produto prod = Produto();
-        prod = prod.desmontar(QString::fromStdString(linha));
-        listaProduto.inserirInicio(prod);
-        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
-    }
+//        Produto prod = Produto();
+//        prod = prod.desmontar(QString::fromStdString(linha));
+//        listaProduto.inserirInicio(prod);
+//        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
+//    }
 
-    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
-        if(listaProduto[i].getIdProduto() == produto.getIdProduto()) {
-            listaProduto.retirarPos(i);
-        }
-    }
+//    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
+//        if(listaProduto[i].getIdProduto() == produto.getIdProduto()) {
+//            listaProduto.retirarPos(i);
+//        }
+//    }
 
-    QString res = "";
+//    QString res = "";
 
-    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
-        res += listaProduto[i].montar();
+//    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
+//        res += listaProduto[i].montar();
 
-        if(i < listaProduto.getQuantidadeDeElementos() - 1) res += "\n";
-    }
+//        if(i < listaProduto.getQuantidadeDeElementos() - 1) res += "\n";
+//    }
 
-    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
+//    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
 
-    arquivo.close();
-}
+//    arquivo.close();
+//}
 
 LLDE<Cliente> Adminstrador::getListaClientes()
 {
@@ -195,8 +197,8 @@ LLDE<Cliente> Adminstrador::getListaClientes()
 
             linha = line.split(";");
 
-            Cliente cli = Cliente(linha[0], linha[1], linha[2], linha[3]);
-
+            Cliente cli = Cliente(linha[1], linha[2], linha[3], linha[4]);
+//            cli.setId();
             aux.inserirInicio(cli);
         }
     }

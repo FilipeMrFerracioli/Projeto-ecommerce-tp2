@@ -3,7 +3,7 @@
 namespace minhaNamespace {
 
 Cliente::Cliente():
-    id(0),
+    id(""),
     nome(""),
     endereco(""),
     telefone(""),
@@ -13,26 +13,21 @@ Cliente::Cliente():
 }
 
 Cliente::Cliente(QString nome, QString endereco, QString telefone, QString cpf):
-    id(0),
+    id(""),
     nome(""),
     endereco(""),
     telefone(""),
     cpf("")
 {
-    if(nome == "") throw QString("Nome mal formatado");
-    this->nome = nome;
+    setNome(nome);
+    setEndereco(endereco);
+    setTelefone(telefone);
+    setCpf(cpf);
+}
 
-    if(endereco == "") throw QString("Endereco mal formatado");
-    this->endereco = endereco;
-
-    if(telefone == "") throw QString("Telefone mal formatado");
-    this->telefone = telefone;
-
-    if(cpf.length() == 11 && cpf != "") {
-        this->cpf = cpf;
-        id = cpf.toInt();
-    }
-    else throw QString("CPF mal formatado");
+QString Cliente::getId()
+{
+    return id;
 }
 
 void Cliente::setNome(QString nome)
@@ -48,7 +43,7 @@ QString Cliente::getNome()
 
 void Cliente::setEndereco(QString endereco)
 {
-    if(endereco == "") throw QString("Endereco mal formatado");
+    if(endereco == "") throw QString("Endereço mal formatado");
     this->endereco = endereco;
 }
 
@@ -72,14 +67,26 @@ void Cliente::setCpf(QString cpf)
 {
     if(cpf.length() == 11 && cpf != "") {
         this->cpf = cpf;
-        id = cpf.toInt();
-    }
-    else throw QString("CPF mal formatado");
+        this->id = cpf;
+    } //else throw QString("CPF mal formatado");
 }
 
 QString Cliente::getCpf()
 {
     return cpf;
+}
+
+QString Cliente::getCliente(QString id, QString nome, QString endereco, QString telefone, QString cpf)
+{
+    QString res = "";
+
+    res += id + "\n";
+    res += nome + "\n";
+    res += endereco + "\n";
+    res += telefone + "\n";
+    res += cpf;
+
+    return res;
 }
 
 QString Cliente::consultarPedidos(long id)
@@ -90,164 +97,181 @@ QString Cliente::consultarPedidos(long id)
 
 void Cliente::criar()
 {
-    // verificar se já existe
-
-    if(montar().isEmpty()) throw QString("Objeto mal formatado");
-
-    std::fstream arquivo;
-
-    arquivo.open("baseCliente.txt", std::ios::out | std::ios::app);
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
-
-    //    else arquivo << montar().toStdString().c_str() << std::endl;
-    arquivo << montar().toStdString().c_str() << std::endl;
-
-    arquivo.close();
+    Utils::salvarArquivo(nomeArquivo, montar());
 }
 
 QString Cliente::consultar(long id)
 {
-    std::ifstream arquivo;
-
-    QString nomeDoArquivo = "baseCliente.txt";
-
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-    arquivo.open(nomeDoArquivo.toStdString().c_str());
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
-
-    std::string linha = "";
+    QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
     QString res = "";
-    while(!arquivo.eof()) {
-        std::getline(arquivo, linha);
-
-        Cliente cli = desmontar(QString::fromStdString(linha));
-        if(cli.getId() == id) {
-            res += QString::number(cli.getId()) + "\n";
-            res += cli.getNome() + "\n";
-            res += cli.getEndereco() + "\n";
-            res += cli.getTelefone();
+    for(int i = 0; i < lista.length(); i++) {
+        Cliente cli = desmontar(lista[i]);
+        if(cli.getId() == QString::number(id)) {
+            res = getCliente(cli.getId(), cli.getNome(), cli.getEndereco(), cli.getTelefone(), cli.getCpf());
         }
     }
 
-    arquivo.close();
-
-    if(res.length() == 0) throw QString("Cliente não existe");
+    if(res.isEmpty()) throw QString("O cliente não existe");
 
     return res;
 }
 
-void Cliente::atualizar(long id)
+//void Cliente::atualizar(long id)
+//{
+//    std::fstream arquivo;
+
+//    QString nomeDoArquivo = "baseCliente.txt";
+
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+//    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
+
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+
+//    LLDE<Cliente> listaClientes;
+
+//    std::string linha = "";
+
+//    while(!arquivo.eof()) {
+//        std::getline(arquivo, linha);
+
+//        Cliente cli = Cliente(desmontar(QString::fromStdString(linha)));
+//        listaClientes.inserirInicio(cli);
+//        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
+//    }
+
+//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
+//        if(listaClientes[i].getId() == QString::number(id)) {
+//            listaClientes[i].setNome(this->getNome());
+//            listaClientes[i].setEndereco(this->getEndereco());
+//            listaClientes[i].setTelefone(this->getTelefone());
+//        }
+//    }
+
+//    QString res = "";
+
+//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
+//        res += listaClientes[i].montar();
+
+//        if(i < listaClientes.getQuantidadeDeElementos() - 1) res += "\n";
+//    }
+
+//    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
+
+//    arquivo.close();
+//}
+
+void Cliente::atualizar(Cliente cliente)
 {
-    std::fstream arquivo;
-
-    QString nomeDoArquivo = "baseCliente.txt";
-
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+    QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
     LLDE<Cliente> listaClientes;
-
-    std::string linha = "";
-
-    while(!arquivo.eof()) {
-        std::getline(arquivo, linha);
-
-        Cliente cli = Cliente(desmontar(QString::fromStdString(linha)));
-        listaClientes.inserirInicio(cli);
-        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
-    }
-
-    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-        if(listaClientes[i].getId() == id) {
-            listaClientes[i].setNome(this->getNome());
-            listaClientes[i].setEndereco(this->getEndereco());
-            listaClientes[i].setTelefone(this->getTelefone());
+    for(int i = 0; i < lista.length(); i++) {
+        Cliente cli = desmontar(lista[i]);
+        if(cli.getId() != cliente.id) {
+            listaClientes.inserirInicio(cli);
         }
     }
+    listaClientes.inserirInicio(cliente); // cliente att
 
-    QString res = "";
-
-    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-        res += listaClientes[i].montar();
-
-        if(i < listaClientes.getQuantidadeDeElementos() - 1) res += "\n";
+    QString conteudo = "";
+    for(int i = 0; i < lista.length(); i++) {
+        conteudo += listaClientes[i].montar();
     }
 
-    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
-
-    arquivo.close();
+    Utils::salvarArquivo(nomeArquivo, conteudo);
 }
+
+//void Cliente::deletar(long id)
+//{
+//    std::fstream arquivo;
+
+//    QString nomeDoArquivo = "baseCliente.txt";
+
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+//    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
+
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+
+//    LLDE<Cliente> listaClientes;
+
+//    std::string linha = "";
+
+//    while(!arquivo.eof()) {
+//        std::getline(arquivo, linha);
+
+//        Cliente cli = Cliente(desmontar(QString::fromStdString(linha)));
+//        listaClientes.inserirInicio(cli);
+//    }
+
+//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
+//        if(listaClientes[i].getId() == QString::number(id)) {
+//            listaClientes.retirarPos(i);
+//        }
+//    }
+
+//    QString res = "";
+
+//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
+//        res += listaClientes[i].montar();
+
+//        if(i < listaClientes.getQuantidadeDeElementos() - 1) res += "\n";
+//    }
+
+//    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
+
+//    arquivo.close();
+//}
 
 void Cliente::deletar(long id)
 {
-    std::fstream arquivo;
-
-    QString nomeDoArquivo = "baseCliente.txt";
-
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+    QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
     LLDE<Cliente> listaClientes;
+    for(int i = 0; i < lista.length(); i++) {
+        Cliente cli = desmontar(lista[i]);
 
-    std::string linha = "";
+        throw QString::number(id);
 
-    while(!arquivo.eof()) {
-        std::getline(arquivo, linha);
-
-        Cliente cli = Cliente(desmontar(QString::fromStdString(linha)));
-        listaClientes.inserirInicio(cli);
-        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
-    }
-
-    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-        if(listaClientes[i].getId() == id) {
-            listaClientes.retirarPos(i);
+        if(cli.getId() != QString::number(id)) {
+            listaClientes.inserirInicio(cli);
         }
     }
 
-    QString res = "";
+    QString conteudo = "";
+    for(int i = 0; i < lista.length(); i++) {
+        conteudo += listaClientes[i].montar();
 
-    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-        res += listaClientes[i].montar();
-
-        if(i < listaClientes.getQuantidadeDeElementos() - 1) res += "\n";
+        //        if(i < lista.length() - 1) conteudo += "\n";
     }
 
-    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
-
-    arquivo.close();
+    Utils::salvarArquivo(nomeArquivo, conteudo);
 }
 
 QString Cliente::montar()
 {
-    QString objeto = ""; // id;nome;endereco;telefone;cpf
+    QString objeto = "";
 
-    //    objeto += QString::number(id) + ";";
+    objeto += id + ";";
     objeto += nome + ";";
     objeto += endereco + ";";
     objeto += telefone + ";";
-    objeto += cpf;
+    objeto += cpf + ";";
 
-    return objeto;
+    return objeto; // id;nome;endereco;telefone;cpf
 }
 
 Cliente Cliente::desmontar(QString objeto)
 {
     if(objeto.isEmpty()) throw QString("Erro ao converter para Cliente");
 
-    QStringList objProd = objeto.split(";");
+    QStringList objCli = objeto.split(";"); // id;nome;endereco;telefone;cpf
 
-    return Cliente(objProd[0], objProd[1], objProd[2], objProd[3]);
+    Cliente cli = Cliente(objCli[1], objCli[2], objCli[3], objCli[4]);
+
+    return cli;
 }
 
 }

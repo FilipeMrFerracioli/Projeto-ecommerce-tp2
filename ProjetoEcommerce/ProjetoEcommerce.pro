@@ -13,11 +13,13 @@ SOURCES += \
     adminstrador.cpp \
     carrinhocompras.cpp \
     cliente.cpp \
+    generateid.cpp \
     main.cpp \
     mainwindow.cpp \
     pedido.cpp \
     produto.cpp \
-    telaclienteadm.cpp
+    telaclienteadm.cpp \
+    utils.cpp
 
 HEADERS += \
     ICRUD.h \
@@ -28,10 +30,12 @@ HEADERS += \
     adminstrador.h \
     carrinhocompras.h \
     cliente.h \
+    generateid.h \
     mainwindow.h \
     pedido.h \
     produto.h \
-    telaclienteadm.h
+    telaclienteadm.h \
+    utils.h
 
 FORMS += \
     admin.ui \
