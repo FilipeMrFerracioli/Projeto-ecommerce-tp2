@@ -8,17 +8,17 @@
 #include <ICRUD.h>
 
 namespace minhaNamespace{
-class Adminstrador : public ICRUD
+class Adminstrador : public ICRUD<Cliente, Produto>
 {
 private:
     long chaveAcesso;
-    LLDE<Pedido> listaPedidos;
-    LLDE<Produto> listaProduto;
-    LLDE<Cliente> listaCliente;
+//    LLDE<Pedido> listaPedidos;
+//    LLDE<Produto> listaProduto;
+//    LLDE<Cliente> listaCliente;
 
 public:
     Adminstrador();
-    ~Adminstrador();
+    ~Adminstrador() {};
 
     virtual void criar(Cliente cliente);
     virtual void criar(Produto produto);
@@ -31,6 +31,8 @@ public:
 
     virtual void deletar(Cliente cliente);
     virtual void deletar(Produto produto);
+
+    LLDE<Cliente> getListaClientes();
 };
 }
 

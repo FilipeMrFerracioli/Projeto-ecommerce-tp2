@@ -1,14 +1,14 @@
 #ifndef PEDIDO_H
 #define PEDIDO_H
 
+#include <ITransformarDados.h>
+#include <carrinhocompras.h>
 #include <QString>
 #include <QStringList>
-#include <ITransformarDados.h>
 #include <ICRUD.h>
-#include <carrinhocompras.h>
 
 namespace minhaNamespace {
-class Pedido : public ITransformarDados<Pedido>, public ICRUD
+class Pedido : public ITransformarDados<Pedido>/*, public ICRUD*/
 {
 private:
     long idPedido;

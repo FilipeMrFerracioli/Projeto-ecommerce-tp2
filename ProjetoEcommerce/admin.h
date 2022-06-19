@@ -3,6 +3,8 @@
 
 //#include <QDialog>
 #include <QInputDialog>
+#include <telaclienteadm.h>
+#include <QMessageBox>
 
 namespace Ui {
 class Admin;
@@ -16,8 +18,7 @@ public:
     explicit Admin(QWidget *parent = nullptr);
     ~Admin();
 
-
-
+    void setGrid(minhaNamespace::LLDE<minhaNamespace::Cliente> lista);
 private slots:
     void on_pushButtonAddCliente_clicked();
 

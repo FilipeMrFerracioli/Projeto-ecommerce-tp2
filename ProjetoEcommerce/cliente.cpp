@@ -100,8 +100,10 @@ void Cliente::criar()
 
     if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
 
-    arquivo<< "\n" << montar().toStdString().c_str() << std::endl;
-
+    //    arquivo << montar().toStdString().c_str() << std::endl;
+    if(montar().isEmpty()) arquivo << montar().toStdString().c_str();
+    else arquivo << std::endl << montar().toStdString().c_str();
+    //    arquivo << montar().toStdString().c_str();
     arquivo.close();
 }
 

@@ -169,4 +169,42 @@ void Adminstrador::deletar(Produto produto)
     arquivo.close();
 }
 
+LLDE<Cliente> Adminstrador::getListaClientes()
+{
+    std::ifstream arquivo;
+
+    QString nomeDoArquivo = "baseCliente.txt";
+
+    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+    arquivo.open(nomeDoArquivo.toStdString().c_str());
+
+    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
+
+    std::string linha = "";
+
+    LLDE<Cliente> aux;
+
+    while(!arquivo.eof()) {
+        std::getline(arquivo, linha);
+
+        //        if(!linha.empty()) {
+        QString line = QString::fromStdString(linha);
+
+        QStringList linha;
+
+        linha = line.split(";");
+
+        Cliente cli = Cliente(linha[0], linha[1], linha[2], linha[3]);
+        //        Cliente cli2 = Cliente("1", "1", "1", "12345678910");
+
+        aux.inserirInicio(cli);
+        //        }
+    }
+
+    arquivo.close();
+
+    return aux;
+}
+
 }
