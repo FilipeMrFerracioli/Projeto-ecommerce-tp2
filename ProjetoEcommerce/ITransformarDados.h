@@ -5,10 +5,11 @@
 #include <QString>
 
 namespace minhaNamespace {
+template<class T>
 class ITransformarDados {
 public:
-    virtual void montar() = 0;
-    virtual void desmontar(QString objeto) = 0;
+    virtual QString montar() = 0;
+    virtual T desmontar(QString objeto) = 0;
 };
 }
 

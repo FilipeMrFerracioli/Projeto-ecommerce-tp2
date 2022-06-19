@@ -1,0 +1,12 @@
+release/admin.o
+release/adminstrador.o
+release/carrinhocompras.o
+release/cliente.o
+release/main.o
+release/mainwindow.o
+release/pedido.o
+release/produto.o
+release/telaclienteadm.o
+release/moc_admin.o
+release/moc_mainwindow.o
+release/moc_telaclienteadm.o

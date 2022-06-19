@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     admin.cpp \
     adminstrador.cpp \
+    carrinhocompras.cpp \
     cliente.cpp \
     main.cpp \
     mainwindow.cpp \
     pedido.cpp \
-    produto.cpp
+    produto.cpp \
+    telaclienteadm.cpp
 
 HEADERS += \
     ICRUD.h \
@@ -24,14 +26,17 @@ HEADERS += \
     No.h \
     admin.h \
     adminstrador.h \
+    carrinhocompras.h \
     cliente.h \
     mainwindow.h \
     pedido.h \
-    produto.h
+    produto.h \
+    telaclienteadm.h
 
 FORMS += \
     admin.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    telaclienteadm.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

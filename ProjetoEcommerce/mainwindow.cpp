@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     //    ui->widgetHome->hide();
     //    ui->tabWidget->setTabText(0, "Cuzin");
-    //    Admin adm;
-    //    adm.exec();
+        Admin adm;
+        adm.exec();
 }
 
 MainWindow::~MainWindow()
