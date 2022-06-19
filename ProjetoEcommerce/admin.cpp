@@ -84,13 +84,13 @@ void Admin::on_pushButtonRmCliente_clicked()
 
         QString id = QInputDialog::getText(this, "Remover cliente", "ID:");
 
-        //        std::string str = id.toStdString();
+                std::string str = id.toStdString();
 
-        //        long idd = std::stol(str);
+                long idd = std::stol(str);
 
-        //        adm.deletar(idd);
+//                adm.deletar(idd);
 
-        ////        throw QString::fromStdString(str);
+        //       throw QString::fromStdString(str);
 
         setGrid(adm.getListaClientes());
     }  catch (QString &erro) {
