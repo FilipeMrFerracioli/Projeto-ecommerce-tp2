@@ -4,6 +4,7 @@
 //#include <QDialog>
 #include <QInputDialog>
 #include <telaclienteadm.h>
+#include <atualizar_cliente.h>
 #include <QMessageBox>
 #include <cliente.h>
 

@@ -80,11 +80,11 @@ QString Cliente::getCliente(QString id, QString nome, QString endereco, QString 
 {
     QString res = "";
 
-    res += id + "\n";
-    res += nome + "\n";
-    res += endereco + "\n";
-    res += telefone + "\n";
-    res += cpf;
+    res += "ID: " + id + "\n";
+    res += "Nome: " + nome + "\n";
+    res += "Endereço: " + endereco + "\n";
+    res += "Telefone: " + telefone + "\n";
+    res += "CPF: " + cpf;
 
     return res;
 }
@@ -97,24 +97,26 @@ QString Cliente::consultarPedidos(long id)
 
 void Cliente::criar()
 {
-    Utils::salvarArquivo(nomeArquivo, montar());
+    Utils::salvarArquivo(nomeArquivo, montar(), true);
 }
 
-QString Cliente::consultar(long id)
+QString Cliente::consultar(QString id)
 {
+    if(id.isEmpty()) throw QString("ID inválido");
+
     QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
     QString res = "";
     for(int i = 0; i < lista.length(); i++) {
         Cliente cli = desmontar(lista[i]);
-        if(cli.getId() == QString::number(id)) {
-            res = getCliente(cli.getId(), cli.getNome(), cli.getEndereco(), cli.getTelefone(), cli.getCpf());
+        if(cli.getId() == id) {
+            return res = getCliente(cli.getId(), cli.getNome(), cli.getEndereco(), cli.getTelefone(), cli.getCpf());
         }
     }
 
-    if(res.isEmpty()) throw QString("O cliente não existe");
+    //    if(res.isEmpty()) throw QString("O cliente não existe");
 
-    return res;
+    return QString("O cliente não existe");
 }
 
 //void Cliente::atualizar(long id)
@@ -225,26 +227,31 @@ void Cliente::atualizar(Cliente cliente)
 //    arquivo.close();
 //}
 
-void Cliente::deletar(long id)
+void Cliente::deletar(QString id)
 {
+    if(id.isEmpty()) return;
+
     QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
     LLDE<Cliente> listaClientes;
     for(int i = 0; i < lista.length(); i++) {
         Cliente cli = desmontar(lista[i]);
 
-        throw QString::number(id);
+        //        throw QString::number(id);
 
-        if(cli.getId() != QString::number(id)) {
+        if(cli.getId() != id) {
             listaClientes.inserirInicio(cli);
         }
     }
 
-    QString conteudo = "";
-    for(int i = 0; i < lista.length(); i++) {
-        conteudo += listaClientes[i].montar();
+    //    throw QString::number(listaClientes.getQuantidadeDeElementos());
 
-        //        if(i < lista.length() - 1) conteudo += "\n";
+    QString conteudo = "";
+    //    for(int i = 0; i < lista.length(); i++) {
+    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
+        conteudo += listaClientes[i].montar() + "\n";
+
+        //        if(i < listaClientes.getQuantidadeDeElementos() - 1) conteudo += "\n";
     }
 
     Utils::salvarArquivo(nomeArquivo, conteudo);

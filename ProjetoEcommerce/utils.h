@@ -11,7 +11,7 @@ class Utils
 public:
     static QStringList abrirArquivo(QString nomeArquivo);
 
-    static void salvarArquivo(QString nomeArquivo, QString conteudo);
+    static void salvarArquivo(QString nomeArquivo, QString conteudo, bool subtituir = 0);
 };
 }
 

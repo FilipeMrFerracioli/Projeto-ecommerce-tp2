@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     admin.cpp \
     adminstrador.cpp \
+    atualizar_cliente.cpp \
     carrinhocompras.cpp \
     cliente.cpp \
     generateid.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     No.h \
     admin.h \
     adminstrador.h \
+    atualizar_cliente.h \
     carrinhocompras.h \
     cliente.h \
     generateid.h \
@@ -39,6 +41,7 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    atualizar_cliente.ui \
     mainwindow.ui \
     telaclienteadm.ui
 

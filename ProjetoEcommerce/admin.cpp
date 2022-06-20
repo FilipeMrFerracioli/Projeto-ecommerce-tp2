@@ -71,7 +71,15 @@ void Admin::on_pushButtonAddCliente_clicked()
 // AttCliente
 void Admin::on_pushButtonAttCliente_clicked()
 {
+    try {
+        atualizar_cliente cliente;
+        cliente.exec();
 
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
+        setGrid(adm.getListaClientes());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // RmCliente
@@ -84,13 +92,7 @@ void Admin::on_pushButtonRmCliente_clicked()
 
         QString id = QInputDialog::getText(this, "Remover cliente", "ID:");
 
-                std::string str = id.toStdString();
-
-                long idd = std::stol(str);
-
-//                adm.deletar(idd);
-
-        //       throw QString::fromStdString(str);
+        adm.deletar(id);
 
         setGrid(adm.getListaClientes());
     }  catch (QString &erro) {
@@ -98,12 +100,24 @@ void Admin::on_pushButtonRmCliente_clicked()
     }
 }
 
+
 // LocCliente
 void Admin::on_pushButtonLocCliente_clicked()
 {
+    try {
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
 
+        QString id = QInputDialog::getText(this, "Consultar cliente", "ID:");
+
+        QMessageBox::information(this, "Consultar", adm.consultar(id));
+
+        setGrid(adm.getListaClientes());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
+/* ************************************* */
 // LocProduto
 void Admin::on_pushButtonAddProduto_clicked()
 {

@@ -1,5 +1,6 @@
 debug/admin.o
 debug/adminstrador.o
+debug/atualizar_cliente.o
 debug/carrinhocompras.o
 debug/cliente.o
 debug/generateid.o
@@ -10,5 +11,6 @@ debug/produto.o
 debug/telaclienteadm.o
 debug/utils.o
 debug/moc_admin.o
+debug/moc_atualizar_cliente.o
 debug/moc_mainwindow.o
 debug/moc_telaclienteadm.o

@@ -40,9 +40,9 @@ public:
     QString consultarPedidos(long id);
 
     void criar();
-    QString consultar(long id);
+    QString consultar(QString id);
     void atualizar(Cliente cliente);
-    void deletar(long id);
+    void deletar(QString id);
 
     virtual QString montar();
     virtual Cliente desmontar(QString objeto);

@@ -23,7 +23,7 @@ public:
     virtual void criar(Cliente cliente);
     virtual void criar(Produto produto);
 
-    virtual QString consultar(long id);
+    virtual QString consultar(QString id);
     //    virtual QString consultar(Cliente cliente);
     //    virtual QString consultar(Produto produto);
 
@@ -32,7 +32,7 @@ public:
 
     //    virtual void deletar(Cliente cliente);
     //    virtual void deletar(Produto produto);
-    virtual void deletar(long id);
+    virtual void deletar(QString id);
 
     LLDE<Cliente> getListaClientes();
 };

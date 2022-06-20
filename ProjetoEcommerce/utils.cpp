@@ -53,17 +53,20 @@ QStringList Utils::abrirArquivo(QString nomeArquivo)
     return lista;
 }
 
-void Utils::salvarArquivo(QString nomeArquivo, QString conteudo)
+void Utils::salvarArquivo(QString nomeArquivo, QString conteudo, bool subtituir)
 {
     std::ofstream arquivo;
 
     if(nomeArquivo.isEmpty()) throw QString("Nome do arquivo inválido");
 
-    arquivo.open(nomeArquivo.toStdString().c_str(), std::ios::out/* | std::ios::app*/);
+    //    (sub)
+    //    arquivo.open(nomeArquivo.toStdString().c_str(),  std::ios::out/* | std::ios::app*/);
+    arquivo.open(nomeArquivo.toStdString().c_str(), (subtituir) ? std::ios::app : std::ios::out);
 
     if(!arquivo.is_open()) throw QString("Erro: " + nomeArquivo + " não pode ser criado ou aberto");
 
-    arquivo << conteudo.toStdString().c_str() << std::endl;
+//    arquivo << conteudo.toStdString().c_str() << std::endl;
+        arquivo << std::endl << conteudo.toStdString().c_str();
 
     arquivo.close();
 }

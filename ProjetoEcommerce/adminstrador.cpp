@@ -29,7 +29,7 @@ void Adminstrador::criar(Produto produto)
     arquivo.close();
 }
 
-QString Adminstrador::consultar(long id)
+QString Adminstrador::consultar(QString id)
 {
     Cliente cliente;
     return cliente.consultar(id);
@@ -121,7 +121,7 @@ void Adminstrador::atualizar(Produto produto)
     arquivo.close();
 }
 
-void Adminstrador::deletar(long id)
+void Adminstrador::deletar(QString id)
 {
     Cliente cliente;
     cliente.deletar(id);
