@@ -76,9 +76,19 @@ QString Cliente::getCpf()
     return cpf;
 }
 
-QString Cliente::getCliente(QString id, QString nome, QString endereco, QString telefone, QString cpf)
+QString Cliente::getCliente(QString id, QString nome, QString endereco, QString telefone, QString cpf, bool naoFormatado)
 {
     QString res = "";
+
+    if(naoFormatado) {
+        res += id + ";";
+        res += nome + ";";
+        res += endereco + ";";
+        res += telefone + ";";
+        res += cpf + ";";
+
+        return res;
+    }
 
     res += "ID: " + id + "\n";
     res += "Nome: " + nome + "\n";
@@ -97,12 +107,18 @@ QString Cliente::consultarPedidos(long id)
 
 void Cliente::criar()
 {
+    if(id.isEmpty() || id.length() != 11) throw QString("ID inválido");
+
+    Utils::verificarIDRepetido(nomeArquivo, getId());
+
     Utils::salvarArquivo(nomeArquivo, montar(), true);
 }
 
-QString Cliente::consultar(QString id)
+QString Cliente::consultar(QString id, bool naoFormatado)
 {
-    if(id.isEmpty()) throw QString("ID inválido");
+    if(id.isEmpty() || id.length() != 11) throw QString("ID inválido");
+
+    Utils::verificarSeIDNaoExiste(nomeArquivo, id);
 
     QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
@@ -110,7 +126,7 @@ QString Cliente::consultar(QString id)
     for(int i = 0; i < lista.length(); i++) {
         Cliente cli = desmontar(lista[i]);
         if(cli.getId() == id) {
-            return res = getCliente(cli.getId(), cli.getNome(), cli.getEndereco(), cli.getTelefone(), cli.getCpf());
+            return res = getCliente(cli.getId(), cli.getNome(), cli.getEndereco(), cli.getTelefone(), cli.getCpf(), naoFormatado);
         }
     }
 
@@ -166,6 +182,8 @@ QString Cliente::consultar(QString id)
 
 void Cliente::atualizar(Cliente cliente)
 {
+    Utils::verificarSeIDNaoExiste(nomeArquivo, cliente.getId());
+
     QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
     LLDE<Cliente> listaClientes;
@@ -178,8 +196,10 @@ void Cliente::atualizar(Cliente cliente)
     listaClientes.inserirInicio(cliente); // cliente att
 
     QString conteudo = "";
-    for(int i = 0; i < lista.length(); i++) {
-        conteudo += listaClientes[i].montar();
+    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
+        conteudo += listaClientes[i].montar() + "\n";
+
+        //        if(i < listaClientes.getQuantidadeDeElementos() - 1) conteudo += "\n";
     }
 
     Utils::salvarArquivo(nomeArquivo, conteudo);
@@ -230,6 +250,8 @@ void Cliente::atualizar(Cliente cliente)
 void Cliente::deletar(QString id)
 {
     if(id.isEmpty()) return;
+
+    Utils::verificarSeIDNaoExiste(nomeArquivo, id);
 
     QStringList lista = Utils::abrirArquivo(nomeArquivo);
 

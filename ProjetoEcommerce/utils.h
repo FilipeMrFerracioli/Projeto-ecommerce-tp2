@@ -12,6 +12,10 @@ public:
     static QStringList abrirArquivo(QString nomeArquivo);
 
     static void salvarArquivo(QString nomeArquivo, QString conteudo, bool subtituir = 0);
+
+    static void verificarIDRepetido(QString nomeArquivo, QString id);
+
+    static void verificarSeIDNaoExiste(QString nomeArquivo, QString id);
 };
 }
 

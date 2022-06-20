@@ -22,25 +22,28 @@ atualizar_cliente::~atualizar_cliente()
 void atualizar_cliente::on_pushButtonBuscar_clicked()
 {
     try {
-//        QStringList listaCliente = adm.consultar(ui->lineEditID->text()).split("\n");
-        throw adm.consultar(ui->lineEditID->text());
+        QStringList listaCliente = adm.consultar(ui->lineEditID->text(), true).split(";");
+
+//        throw QString::number(listaCliente.length());
+//        throw QString(listaCliente[0]);
+        //        throw QString(listaCliente[0]);
 
         //        minhaNamespace::Cliente cliente = minhaNamespace::Cliente();
-
-        ui->lineEditNome->setEnabled(false);
-        ui->lineEditEndereco->setEnabled(false);
-        ui->lineEditTelefone->setEnabled(false);
-        ui->pushButtonAtualizar->setEnabled(false);
 
         //        cliente.setNome(ui->lineEditNome->text());
         //        cliente.setEndereco(ui->lineEditEndereco->text());
         //        cliente.setTelefone(ui->lineEditTelefone->text());
 
-        /*ui->lineEditID->setText(listaCliente[0]);
+        ui->lineEditID->setText(listaCliente[0]);
         ui->lineEditNome->setText(listaCliente[1]);
         ui->lineEditEndereco->setText(listaCliente[2]);
         ui->lineEditTelefone->setText(listaCliente[3]);
-        ui->lineEditCpf->setText(listaCliente[4]);*/
+        ui->lineEditCpf->setText(listaCliente[4]);
+
+        ui->lineEditNome->setEnabled(true);
+        ui->lineEditEndereco->setEnabled(true);
+        ui->lineEditTelefone->setEnabled(true);
+        ui->pushButtonAtualizar->setEnabled(true);
 
         //        this->close();
     }  catch (QString &erro) {

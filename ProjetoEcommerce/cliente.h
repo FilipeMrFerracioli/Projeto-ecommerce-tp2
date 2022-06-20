@@ -35,12 +35,12 @@ public:
     void setCpf(QString cpf);
     QString getCpf();
 
-    QString getCliente(QString id, QString nome, QString endereco, QString telefone, QString cpf);
+    QString getCliente(QString id, QString nome, QString endereco, QString telefone, QString cpf, bool naoFormatado = 0);
 
     QString consultarPedidos(long id);
 
     void criar();
-    QString consultar(QString id);
+    QString consultar(QString id, bool naoFormatado = 0);
     void atualizar(Cliente cliente);
     void deletar(QString id);
 

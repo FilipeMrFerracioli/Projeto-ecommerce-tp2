@@ -29,10 +29,10 @@ void Adminstrador::criar(Produto produto)
     arquivo.close();
 }
 
-QString Adminstrador::consultar(QString id)
+QString Adminstrador::consultar(QString id, bool naoFormatado)
 {
     Cliente cliente;
-    return cliente.consultar(id);
+    return cliente.consultar(id, naoFormatado);
 }
 
 //QString Adminstrador::consultar(Produto produto)

@@ -12,7 +12,7 @@ public:
 
     //    virtual QString consultar(T) = 0;
     //    virtual QString consultar(U) = 0;
-    virtual QString consultar(QString id) = 0;
+    virtual QString consultar(QString id, bool naoFormatado = 0) = 0;
 
     virtual void atualizar(T) = 0;
     virtual void atualizar(U) = 0;

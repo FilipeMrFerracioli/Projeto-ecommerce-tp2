@@ -23,7 +23,7 @@ public:
     virtual void criar(Cliente cliente);
     virtual void criar(Produto produto);
 
-    virtual QString consultar(QString id);
+    virtual QString consultar(QString id, bool naoFormatado);
     //    virtual QString consultar(Cliente cliente);
     //    virtual QString consultar(Produto produto);
 

@@ -109,7 +109,7 @@ void Admin::on_pushButtonLocCliente_clicked()
 
         QString id = QInputDialog::getText(this, "Consultar cliente", "ID:");
 
-        QMessageBox::information(this, "Consultar", adm.consultar(id));
+        QMessageBox::information(this, "Consultar", adm.consultar(id, false));
 
         setGrid(adm.getListaClientes());
     }  catch (QString &erro) {
