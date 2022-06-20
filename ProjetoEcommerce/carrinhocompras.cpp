@@ -9,7 +9,7 @@ CarrinhoCompras::CarrinhoCompras():
 
 }
 
-void CarrinhoCompras::setAddProduto(long idProduto, int qtdProduto)
+/*void CarrinhoCompras::setAddProduto(long idProduto, int qtdProduto)
 {
     std::ifstream arquivo;
 
@@ -37,9 +37,9 @@ void CarrinhoCompras::setAddProduto(long idProduto, int qtdProduto)
     }
 
     arquivo.close();
-}
+}*/
 
-void CarrinhoCompras::setRmProduto(long idProduto, int qtdProduto)
+/*void CarrinhoCompras::setRmProduto(long idProduto, int qtdProduto)
 {
     if(listaProdutos.getQuantidadeDeElementos() == 0) throw QString("Carrinho de compras vazio");
 
@@ -59,7 +59,7 @@ void CarrinhoCompras::setRmProduto(long idProduto, int qtdProduto)
         }
 
     }
-}
+}*/
 
 void CarrinhoCompras::setAddTotalCompra(double preco)
 {
@@ -76,7 +76,7 @@ double CarrinhoCompras::getTotalCompra()
     return totalCompra;
 }
 
-QString CarrinhoCompras::getListaProdutos()
+/*QString CarrinhoCompras::getListaProdutos()
 {
     if(listaProdutos.getQuantidadeDeElementos() == 0) throw QString("Carrinho de compras vazio");
 
@@ -88,6 +88,6 @@ QString CarrinhoCompras::getListaProdutos()
     }
 
     return res;
-}
+}*/
 
 }

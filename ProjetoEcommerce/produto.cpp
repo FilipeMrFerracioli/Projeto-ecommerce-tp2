@@ -3,7 +3,7 @@
 namespace minhaNamespace {
 
 Produto::Produto():
-    idProduto(0),
+    idProduto(""),
     descricao(""),
     qtdProdutos(0),
     precoUn(0.0)
@@ -12,22 +12,36 @@ Produto::Produto():
 }
 
 Produto::Produto(QString descricao, int qtdProdutos, double precoUn):
-    idProduto(0),
+    idProduto(""),
     descricao(""),
     qtdProdutos(0),
     precoUn(0.0)
 {
-    if(descricao == "") throw QString("descricao mal formatado");
-    this->descricao = descricao;
+    setDescricao(descricao);
+    setQtdProdutos(qtdProdutos);
+    setPrecoUn(precoUn);
+//    setIdProduto();
+    //    Utils::verificarSeIDNaoExiste(nomeArquivo, GenerateID::generateIDProduto());
+    //    while(Utils::verificarIDRepetido())
+    //    if(Utils::verificarIDRepetido(nomeArquivo, GenerateID::generateIDProduto())) Produto(descricao, qtdProdutos, precoUn);
 
-    if(qtdProdutos == 0) throw QString("qtdProdutos mal formatado");
-    this->qtdProdutos = qtdProdutos;
-
-    if(precoUn == 0.0) throw QString("precoUn mal formatado");
-    this->precoUn = precoUn;
 }
 
-long Produto::getIdProduto()
+void Produto::setIdProduto(QString idProduto)
+{
+    if(idProduto.length() == 0) throw QString("ID produto inválido");
+    this->idProduto = idProduto;
+}
+
+void Produto::setIdProduto()
+{
+    idProduto = GenerateID::generateIDProduto();
+    while(Utils::verificarIDRepetido(nomeArquivo, idProduto)) {
+        idProduto = GenerateID::generateIDProduto();
+    }
+}
+
+QString Produto::getIdProduto()
 {
     return idProduto;
 }
@@ -38,7 +52,7 @@ void Produto::setDescricao(QString descricao)
     this->descricao = descricao;
 }
 
-QString Produto::getDescricao() const
+QString Produto::getDescricao()
 {
     return descricao;
 }
@@ -49,7 +63,7 @@ void Produto::setQtdProdutos(int qtdProdutos)
     this->qtdProdutos = qtdProdutos;
 }
 
-int Produto::getQtdProdutos() const
+int Produto::getQtdProdutos()
 {
     return qtdProdutos;
 }
@@ -60,81 +74,133 @@ void Produto::setPrecoUn(double precoUn)
     this->precoUn = precoUn;
 }
 
-double Produto::getPrecoUn() const
+double Produto::getPrecoUn()
 {
     return precoUn;
 }
 
-//void Produto::criar()
-//{
+QString Produto::getProduto(QString idProduto, QString descricao, int qtdProdutos, double precoUn, bool naoFormatado)
+{
+    QString res = "";
 
-//}
+    if(naoFormatado) {
+        res += idProduto + ";";
+        res += descricao + ";";
+        res += QString::number(qtdProdutos) + ";";
+        res += QString::number(precoUn) + ";";
 
-//QString Produto::consultar(long id)
-//{
-//    std::ifstream arquivo;
+        return res;
+    }
 
-//    QString nomeDoArquivo = "basePedido.txt";
+    res += "ID: " + idProduto + "\n";
+    res += "Descrição: " + descricao + "\n";
+    res += "Quantidade: " + QString::number(qtdProdutos) + "\n";
+    res += "Preço (un): " + QString::number(precoUn);
 
-//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não encontrado.");
+    return res;
+}
 
-//    arquivo.open(nomeDoArquivo.toStdString().c_str());
+void Produto::criar()
+{
+//    if(idProduto.isEmpty() || idProduto.length() != 11) throw QString("ID inválido");
 
-//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
+    Utils::verificarIDRepetido(nomeArquivo, getIdProduto());
 
-//    std::string linha = "";
+//    throw montar();
 
-//    QString res = "";
-//    while(!arquivo.eof()) {
-//        std::getline(arquivo, linha);
+    Utils::salvarArquivo(nomeArquivo, montar(), true);
+}
 
-//        Produto prod = desmontar(QString::fromStdString(linha));
-//        if(prod.idProduto == id) {
-//            //            res += ped.montar();
-//            QStringList linhaProduto = prod.montar().split(";");
-//            res += "ID Produto: " + linhaProduto[0] + "\n";
-//            res += "Descrição: " + linhaProduto[1] + "\n";
-//            res += "Quantidade em estoque: " + linhaProduto[2];
-//            res += "Preço (un): " + linhaProduto[3];
+QString Produto::consultar(QString idProduto, bool naoFormatado)
+{
+    if(idProduto.isEmpty() || idProduto.length() != 11) throw QString("ID inválido");
 
-//            res += "\n'";
-//        }
-//    }
+    Utils::verificarSeIDNaoExiste(nomeArquivo, idProduto);
 
-//    arquivo.close();
+    QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
-//    return res;
-//}
+    QString res = "";
+    for(int i = 0; i < lista.length(); i++) {
+        Produto prod = desmontar(lista[i]);
+        if(prod.getIdProduto() == idProduto) {
+            return res = getProduto(prod.getIdProduto(), prod.getDescricao(), prod.getQtdProdutos(), prod.getPrecoUn(), naoFormatado);
+        }
+    }
 
-//void Produto::atualizar()
-//{
+    return QString("O produto não existe");
+}
 
-//}
+void Produto::atualizar(Produto produto)
+{
+    Utils::verificarSeIDNaoExiste(nomeArquivo, produto.getIdProduto());
 
-//void Produto::deletar()
-//{
+    QStringList lista = Utils::abrirArquivo(nomeArquivo);
 
-//}
+    LLDE<Produto> listaProdutos;
+    for(int i = 0; i < lista.length(); i++) {
+        Produto prod = desmontar(lista[i]);
+        if(prod.getIdProduto() != produto.idProduto) {
+            listaProdutos.inserirInicio(prod);
+        }
+    }
+    listaProdutos.inserirInicio(produto); // produto att
 
-QString Produto::montar() // Produto(QString descricao, int qtdProdutos, double precoUn)
+    QString conteudo = "";
+    for(int i = 0; i < listaProdutos.getQuantidadeDeElementos(); i++) {
+        conteudo += listaProdutos[i].montar() + "\n";
+    }
+
+    Utils::salvarArquivo(nomeArquivo, conteudo);
+}
+
+void Produto::deletar(QString idProduto)
+{
+    if(idProduto.isEmpty()) return;
+
+    Utils::verificarSeIDNaoExiste(nomeArquivo, idProduto);
+
+    QStringList lista = Utils::abrirArquivo(nomeArquivo);
+
+    LLDE<Produto> listaProdutos;
+    for(int i = 0; i < lista.length(); i++) {
+        Produto prod = desmontar(lista[i]);
+
+        if(prod.getIdProduto() != idProduto) {
+            listaProdutos.inserirInicio(prod);
+        }
+    }
+
+    QString conteudo = "";
+    for(int i = 0; i < listaProdutos.getQuantidadeDeElementos(); i++) {
+        conteudo += listaProdutos[i].montar() + "\n";
+    }
+
+    Utils::salvarArquivo(nomeArquivo, conteudo);
+}
+
+QString Produto::montar()
 {
     QString objeto = "";
 
-    objeto += QString::number(idProduto);
+    objeto += idProduto + ";";
     objeto += descricao + ";";
     objeto += QString::number(qtdProdutos) + ";";
-    objeto += QString::number(precoUn);
+    objeto += QString::number(precoUn) + ";";
 
-    return objeto;
+    return objeto; // id;descricao;qtdProdutos;precoUn
 }
 
-Produto Produto::desmontar(QString objeto) // Produto(QString descricao, int qtdProdutos, double precoUn)
+Produto Produto::desmontar(QString objeto)
 {
-    if(objeto.isEmpty()) throw QString("Erro ao converter para Pedido");
+    if(objeto.isEmpty()) throw QString("Erro ao converter para Produto");
 
-    QStringList objProd = objeto.split(";");
+    QStringList objProd = objeto.split(";"); // id;descricao;qtdProdutos;precoUn
+//    throw QString(objProd[0]);
+    Produto pd = Produto(objProd[1], objProd[2].toInt(), objProd[3].toDouble());
+    pd.setIdProduto(objProd[0]);
 
-    return Produto(objProd[0], objProd[1].toInt(), objProd[2].toDouble());
+    return pd;
+//    return Produto(objProd[1], objProd[2].toInt(), objProd[3].toDouble());
 }
 
 }

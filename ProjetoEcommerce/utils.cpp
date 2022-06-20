@@ -45,13 +45,24 @@ void Utils::salvarArquivo(QString nomeArquivo, QString conteudo, bool subtituir)
     arquivo.close();
 }
 
-void Utils::verificarIDRepetido(QString nomeArquivo, QString id)
+//void Utils::verificarIDRepetido(QString nomeArquivo, QString id)
+//{
+//    QStringList lista = abrirArquivo(nomeArquivo);
+
+//    for(int i = 0; i < lista.length(); i++) {
+//        if(lista[i].split(";")[0] == id) throw QString("ID já existe");
+//    }
+//}
+
+bool Utils::verificarIDRepetido(QString nomeArquivo, QString id)
 {
     QStringList lista = abrirArquivo(nomeArquivo);
 
     for(int i = 0; i < lista.length(); i++) {
-        if(lista[i].split(";")[0] == id) throw QString("ID já existe");
+        if(lista[i].split(";")[0] == id) return true;
     }
+
+    return false;
 }
 
 void Utils::verificarSeIDNaoExiste(QString nomeArquivo, QString id)

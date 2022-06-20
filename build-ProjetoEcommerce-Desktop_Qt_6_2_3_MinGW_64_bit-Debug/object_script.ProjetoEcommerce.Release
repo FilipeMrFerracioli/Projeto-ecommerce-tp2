@@ -1,6 +1,8 @@
+release/adicionar_produto.o
 release/admin.o
 release/adminstrador.o
 release/atualizar_cliente.o
+release/atualizar_produto.o
 release/carrinhocompras.o
 release/cliente.o
 release/generateid.o
@@ -10,7 +12,9 @@ release/pedido.o
 release/produto.o
 release/telaclienteadm.o
 release/utils.o
+release/moc_adicionar_produto.o
 release/moc_admin.o
 release/moc_atualizar_cliente.o
+release/moc_atualizar_produto.o
 release/moc_mainwindow.o
 release/moc_telaclienteadm.o

@@ -5,35 +5,43 @@
 #include <QStringList>
 #include <ITransformarDados.h>
 #include <ICRUD.h>
+#include <utils.h>
+#include <LLDE.h>
+#include <generateid.h>
 
 namespace minhaNamespace {
 class Produto : public ITransformarDados<Produto>/*, public ICRUD*/
 {
 private:
-    long idProduto;
+    QString idProduto;
     QString descricao;
     int qtdProdutos;
     double precoUn;
+    QString nomeArquivo = "baseProduto.txt";
 public:
     Produto();
     Produto(QString descricao, int qtdEstoque, double precoUn);
     ~Produto() {};
 
-    long getIdProduto();
+    void setIdProduto(QString idProduto);
+    void setIdProduto();
+    QString getIdProduto();
 
     void setDescricao(QString descricao);
-    QString getDescricao() const;
+    QString getDescricao();
 
     void setQtdProdutos(int qtdProdutos);
-    int getQtdProdutos() const;
+    int getQtdProdutos();
 
     void setPrecoUn(double precoUn);
-    double getPrecoUn() const;
+    double getPrecoUn();
 
-    //    virtual void criar();
-    //    virtual QString consultar(long id);
-    //    virtual void atualizar();
-    //    virtual void deletar();
+    QString getProduto(QString idProduto, QString descricao, int qtdProdutos, double precoUn, bool naoFormatado = 0);
+
+    void criar();
+    QString consultar(QString idProduto, bool naoFormatado = 0);
+    void atualizar(Produto produto);
+    void deletar(QString idProduto);
 
     virtual QString montar();
     virtual Produto desmontar(QString objeto);

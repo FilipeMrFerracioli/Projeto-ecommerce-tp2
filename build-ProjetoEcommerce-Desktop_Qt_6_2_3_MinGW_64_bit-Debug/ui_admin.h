@@ -107,8 +107,8 @@ public:
         tabProduto = new QWidget();
         tabProduto->setObjectName(QString::fromUtf8("tabProduto"));
         tableWidgetProduto = new QTableWidget(tabProduto);
-        if (tableWidgetProduto->columnCount() < 5)
-            tableWidgetProduto->setColumnCount(5);
+        if (tableWidgetProduto->columnCount() < 4)
+            tableWidgetProduto->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
         tableWidgetProduto->setHorizontalHeaderItem(0, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
@@ -117,8 +117,6 @@ public:
         tableWidgetProduto->setHorizontalHeaderItem(2, __qtablewidgetitem7);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
         tableWidgetProduto->setHorizontalHeaderItem(3, __qtablewidgetitem8);
-        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        tableWidgetProduto->setHorizontalHeaderItem(4, __qtablewidgetitem9);
         tableWidgetProduto->setObjectName(QString::fromUtf8("tableWidgetProduto"));
         tableWidgetProduto->setGeometry(QRect(0, 0, 631, 561));
         layoutWidget1 = new QWidget(tabProduto);
@@ -155,16 +153,16 @@ public:
         tableWidgetPedidos = new QTableWidget(tabPedido);
         if (tableWidgetPedidos->columnCount() < 5)
             tableWidgetPedidos->setColumnCount(5);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tableWidgetPedidos->setHorizontalHeaderItem(0, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        tableWidgetPedidos->setHorizontalHeaderItem(0, __qtablewidgetitem10);
+        tableWidgetPedidos->setHorizontalHeaderItem(1, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        tableWidgetPedidos->setHorizontalHeaderItem(1, __qtablewidgetitem11);
+        tableWidgetPedidos->setHorizontalHeaderItem(2, __qtablewidgetitem11);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        tableWidgetPedidos->setHorizontalHeaderItem(2, __qtablewidgetitem12);
+        tableWidgetPedidos->setHorizontalHeaderItem(3, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        tableWidgetPedidos->setHorizontalHeaderItem(3, __qtablewidgetitem13);
-        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        tableWidgetPedidos->setHorizontalHeaderItem(4, __qtablewidgetitem14);
+        tableWidgetPedidos->setHorizontalHeaderItem(4, __qtablewidgetitem13);
         tableWidgetPedidos->setObjectName(QString::fromUtf8("tableWidgetPedidos"));
 
         gridLayout_5->addWidget(tableWidgetPedidos, 0, 0, 2, 1);
@@ -201,7 +199,7 @@ public:
 
         retranslateUi(Admin);
 
-        tabWidgetAdminstrador->setCurrentIndex(2);
+        tabWidgetAdminstrador->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Admin);
@@ -228,28 +226,26 @@ public:
         QTableWidgetItem *___qtablewidgetitem5 = tableWidgetProduto->horizontalHeaderItem(0);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("Admin", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = tableWidgetProduto->horizontalHeaderItem(1);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("Admin", "Nome", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("Admin", "Descri\303\247\303\243o", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidgetProduto->horizontalHeaderItem(2);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("Admin", "Descri\303\247\303\243o", nullptr));
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("Admin", "Qtd", nullptr));
         QTableWidgetItem *___qtablewidgetitem8 = tableWidgetProduto->horizontalHeaderItem(3);
-        ___qtablewidgetitem8->setText(QCoreApplication::translate("Admin", "Qtd", nullptr));
-        QTableWidgetItem *___qtablewidgetitem9 = tableWidgetProduto->horizontalHeaderItem(4);
-        ___qtablewidgetitem9->setText(QCoreApplication::translate("Admin", "Valor", nullptr));
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("Admin", "Valor", nullptr));
         pushButtonAddProduto->setText(QCoreApplication::translate("Admin", "Adicionar", nullptr));
         pushButtonAttProduto->setText(QCoreApplication::translate("Admin", "Atualizar", nullptr));
         pushButtonRmProduto->setText(QCoreApplication::translate("Admin", "Remover", nullptr));
         pushButtonLocProduto->setText(QCoreApplication::translate("Admin", "Localizar", nullptr));
         tabWidgetAdminstrador->setTabText(tabWidgetAdminstrador->indexOf(tabProduto), QCoreApplication::translate("Admin", "Tab 2", nullptr));
-        QTableWidgetItem *___qtablewidgetitem10 = tableWidgetPedidos->horizontalHeaderItem(0);
-        ___qtablewidgetitem10->setText(QCoreApplication::translate("Admin", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem11 = tableWidgetPedidos->horizontalHeaderItem(1);
-        ___qtablewidgetitem11->setText(QCoreApplication::translate("Admin", "Usu\303\241rio", nullptr));
-        QTableWidgetItem *___qtablewidgetitem12 = tableWidgetPedidos->horizontalHeaderItem(2);
-        ___qtablewidgetitem12->setText(QCoreApplication::translate("Admin", "Descri\303\247\303\243o", nullptr));
-        QTableWidgetItem *___qtablewidgetitem13 = tableWidgetPedidos->horizontalHeaderItem(3);
-        ___qtablewidgetitem13->setText(QCoreApplication::translate("Admin", "Qtd", nullptr));
-        QTableWidgetItem *___qtablewidgetitem14 = tableWidgetPedidos->horizontalHeaderItem(4);
-        ___qtablewidgetitem14->setText(QCoreApplication::translate("Admin", "Valor", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = tableWidgetPedidos->horizontalHeaderItem(0);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("Admin", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = tableWidgetPedidos->horizontalHeaderItem(1);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("Admin", "Usu\303\241rio", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = tableWidgetPedidos->horizontalHeaderItem(2);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("Admin", "Descri\303\247\303\243o", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = tableWidgetPedidos->horizontalHeaderItem(3);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("Admin", "Qtd", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = tableWidgetPedidos->horizontalHeaderItem(4);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("Admin", "Valor", nullptr));
         pushButtonAttPedido->setText(QCoreApplication::translate("Admin", "Atualizar", nullptr));
         pushButtonAddPedido->setText(QCoreApplication::translate("Admin", "Adicionar", nullptr));
         pushButtonRmPedido->setText(QCoreApplication::translate("Admin", "Remover", nullptr));

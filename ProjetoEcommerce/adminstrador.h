@@ -35,6 +35,7 @@ public:
     virtual void deletar(QString id);
 
     LLDE<Cliente> getListaClientes();
+    LLDE<Produto> getListaProdutos();
 };
 }
 

@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidgetAdminstrador">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabCliente">
       <attribute name="title">
@@ -115,11 +115,6 @@
        <column>
         <property name="text">
          <string>ID</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Nome</string>
         </property>
        </column>
        <column>

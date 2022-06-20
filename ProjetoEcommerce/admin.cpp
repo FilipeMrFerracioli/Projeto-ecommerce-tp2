@@ -6,12 +6,17 @@ Admin::Admin(QWidget *parent) :
     ui(new Ui::Admin)
 {
     ui->setupUi(this);
-    ui->tabWidgetAdminstrador->setTabText(0, "Cliente");
-    ui->tabWidgetAdminstrador->setTabText(1, "Produto");
-    ui->tabWidgetAdminstrador->setTabText(2, "Pedido");
+    try {
+        ui->tabWidgetAdminstrador->setTabText(0, "Cliente");
+        ui->tabWidgetAdminstrador->setTabText(1, "Produto");
+        ui->tabWidgetAdminstrador->setTabText(2, "Pedido");
 
-    minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
-    setGrid(adm.getListaClientes());
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
+        setGridCliente(adm.getListaClientes());
+        setGridProduto(adm.getListaProdutos());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 Admin::~Admin()
@@ -21,7 +26,7 @@ Admin::~Admin()
 }
 
 // Grid cliente
-void Admin::setGrid(minhaNamespace::LLDE<minhaNamespace::Cliente> lista)
+void Admin::setGridCliente(minhaNamespace::LLDE<minhaNamespace::Cliente> lista)
 {
     ui->tableWidgetCliente->clearContents();
     ui->tableWidgetCliente->setRowCount(0);
@@ -52,6 +57,34 @@ void Admin::setGrid(minhaNamespace::LLDE<minhaNamespace::Cliente> lista)
     }
 }
 
+// Grid produto
+void Admin::setGridProduto(minhaNamespace::LLDE<minhaNamespace::Produto> lista)
+{
+    ui->tableWidgetProduto->clearContents();
+    ui->tableWidgetProduto->setRowCount(0);
+
+    for(int i = 0; i < lista.getQuantidadeDeElementos(); i++) {
+        int linha = ui->tableWidgetProduto->rowCount();
+        ui->tableWidgetProduto->insertRow(linha);
+
+        QTableWidgetItem *id = 0;
+        id = new QTableWidgetItem(lista[i].getIdProduto());
+        ui->tableWidgetProduto->setItem(linha, 0, id);
+
+        QTableWidgetItem *descricao = 0;
+        descricao = new QTableWidgetItem(lista[i].getDescricao());
+        ui->tableWidgetProduto->setItem(linha, 1, descricao);
+
+        QTableWidgetItem *quantidade = 0;
+        quantidade = new QTableWidgetItem(QString::number(lista[i].getQtdProdutos()));
+        ui->tableWidgetProduto->setItem(linha, 2, quantidade);
+
+        QTableWidgetItem *preco = 0;
+        preco = new QTableWidgetItem(QString::number(lista[i].getPrecoUn()));
+        ui->tableWidgetProduto->setItem(linha, 3, preco);
+    }
+}
+
 // AddCliente
 void Admin::on_pushButtonAddCliente_clicked()
 {
@@ -60,7 +93,7 @@ void Admin::on_pushButtonAddCliente_clicked()
         cliente.exec();
 
         minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
-        setGrid(adm.getListaClientes());
+        setGridCliente(adm.getListaClientes());
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }
@@ -74,7 +107,7 @@ void Admin::on_pushButtonAttCliente_clicked()
         cliente.exec();
 
         minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
-        setGrid(adm.getListaClientes());
+        setGridCliente(adm.getListaClientes());
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }
@@ -90,7 +123,7 @@ void Admin::on_pushButtonRmCliente_clicked()
 
         adm.deletar(id);
 
-        setGrid(adm.getListaClientes());
+        setGridCliente(adm.getListaClientes());
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }
@@ -107,26 +140,34 @@ void Admin::on_pushButtonLocCliente_clicked()
 
         QMessageBox::information(this, "Consultar", adm.consultar(id, false));
 
-        setGrid(adm.getListaClientes());
+        setGridCliente(adm.getListaClientes());
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }
 }
 
 /* ************************************* */
-// LocProduto
+// AddProduto
 void Admin::on_pushButtonAddProduto_clicked()
 {
+    try {
+        adicionar_produto produto;
+        produto.exec();
 
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
+        setGridProduto(adm.getListaProdutos());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
-// LocProduto
+// AttProduto
 void Admin::on_pushButtonAttProduto_clicked()
 {
 
 }
 
-// LocProduto
+// RmProduto
 void Admin::on_pushButtonRmProduto_clicked()
 {
 

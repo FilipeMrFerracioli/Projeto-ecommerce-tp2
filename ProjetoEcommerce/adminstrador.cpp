@@ -12,22 +12,26 @@ void Adminstrador::criar(Cliente cliente)
     cliente.criar();
 }
 
-void Adminstrador::criar(Produto produto)
-{
-    std::fstream arquivo;
-
-    QString nomeDoArquivo = "baseProduto.txt";
-
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out | std::ios::app);
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
-
-    arquivo << produto.montar().toStdString().c_str();
-
-    arquivo.close();
+void Adminstrador::criar(Produto produto){
+    produto.criar();
 }
+
+//void Adminstrador::criar(Produto produto)
+//{
+//    std::fstream arquivo;
+
+//    QString nomeDoArquivo = "baseProduto.txt";
+
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+//    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out | std::ios::app);
+
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+
+//    arquivo << produto.montar().toStdString().c_str();
+
+//    arquivo.close();
+//}
 
 QString Adminstrador::consultar(QString id, bool naoFormatado)
 {
@@ -198,8 +202,46 @@ LLDE<Cliente> Adminstrador::getListaClientes()
             linha = line.split(";");
 
             Cliente cli = Cliente(linha[1], linha[2], linha[3], linha[4]);
-//            cli.setId();
+
             aux.inserirInicio(cli);
+        }
+    }
+
+    arquivo.close();
+
+    return aux;
+}
+
+LLDE<Produto> Adminstrador::getListaProdutos()
+{
+    std::ifstream arquivo;
+
+    QString nomeDoArquivo = "baseProduto.txt";
+
+    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+    arquivo.open(nomeDoArquivo.toStdString().c_str());
+
+    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
+
+    std::string linha = "";
+
+    LLDE<Produto> aux;
+
+    while(!arquivo.eof()) {
+        std::getline(arquivo, linha);
+
+        QString line = QString::fromStdString(linha);
+
+        if(!line.isEmpty()) {
+            QStringList linha;
+
+            linha = line.split(";");
+
+            Produto prod = Produto(linha[1], linha[2].toInt(), linha[3].toDouble());
+            prod.setIdProduto(linha[0]);
+
+            aux.inserirInicio(prod);
         }
     }
 

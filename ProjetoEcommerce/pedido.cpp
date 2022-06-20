@@ -62,7 +62,7 @@ QString Pedido::realizarPedido()
 
     if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
 
-    arquivo << carrinhoCompras.getListaProdutos().toStdString().c_str() << std::endl;
+    //arquivo << carrinhoCompras.getListaProdutos().toStdString().c_str() << std::endl;
 
     arquivo.close();
 

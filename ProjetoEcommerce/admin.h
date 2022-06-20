@@ -5,6 +5,8 @@
 #include <QInputDialog>
 #include <telaclienteadm.h>
 #include <atualizar_cliente.h>
+#include <adicionar_produto.h>
+#include <atualizar_produto.h>
 #include <QMessageBox>
 #include <cliente.h>
 
@@ -20,7 +22,8 @@ public:
     explicit Admin(QWidget *parent = nullptr);
     ~Admin();
 
-    void setGrid(minhaNamespace::LLDE<minhaNamespace::Cliente> lista);
+    void setGridCliente(minhaNamespace::LLDE<minhaNamespace::Cliente> lista);
+    void setGridProduto(minhaNamespace::LLDE<minhaNamespace::Produto> lista);
 private slots:
     void on_pushButtonAddCliente_clicked();
 

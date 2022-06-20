@@ -2,7 +2,7 @@
 
 namespace minhaNamespace {
 
-long GenerateID::generateIDProduto()
+QString GenerateID::generateIDProduto()
 {
     srand((unsigned)time(0));
 
@@ -10,10 +10,10 @@ long GenerateID::generateIDProduto()
 
     id = (rand() % 1000) + 1000; // 1000 ~ 2000
 
-    return id;
+    return QString::number(id);
 }
 
-long GenerateID::generateIDPedido()
+QString GenerateID::generateIDPedido()
 {
     srand((unsigned)time(0));
 
@@ -21,7 +21,7 @@ long GenerateID::generateIDPedido()
 
     id = (rand() % 3000) + 5000;
 
-    return id;
+    return QString::number(id);
 }
 
 }

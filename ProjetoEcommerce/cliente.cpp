@@ -109,7 +109,8 @@ void Cliente::criar()
 {
     if(id.isEmpty() || id.length() != 11) throw QString("ID inválido");
 
-    Utils::verificarIDRepetido(nomeArquivo, getId());
+    //    Utils::verificarIDRepetido(nomeArquivo, getId());
+    if(Utils::verificarIDRepetido(nomeArquivo, getId())) throw QString("ID já existe");
 
     Utils::salvarArquivo(nomeArquivo, montar(), true);
 }

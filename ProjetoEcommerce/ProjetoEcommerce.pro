@@ -9,9 +9,11 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adicionar_produto.cpp \
     admin.cpp \
     adminstrador.cpp \
     atualizar_cliente.cpp \
+    atualizar_produto.cpp \
     carrinhocompras.cpp \
     cliente.cpp \
     generateid.cpp \
@@ -27,9 +29,11 @@ HEADERS += \
     ITransformarDados.h \
     LLDE.h \
     No.h \
+    adicionar_produto.h \
     admin.h \
     adminstrador.h \
     atualizar_cliente.h \
+    atualizar_produto.h \
     carrinhocompras.h \
     cliente.h \
     generateid.h \
@@ -40,8 +44,10 @@ HEADERS += \
     utils.h
 
 FORMS += \
+    adicionar_produto.ui \
     admin.ui \
     atualizar_cliente.ui \
+    atualizar_produto.ui \
     mainwindow.ui \
     telaclienteadm.ui
 
