@@ -130,55 +130,8 @@ QString Cliente::consultar(QString id, bool naoFormatado)
         }
     }
 
-    //    if(res.isEmpty()) throw QString("O cliente não existe");
-
     return QString("O cliente não existe");
 }
-
-//void Cliente::atualizar(long id)
-//{
-//    std::fstream arquivo;
-
-//    QString nomeDoArquivo = "baseCliente.txt";
-
-//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-//    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
-
-//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
-
-//    LLDE<Cliente> listaClientes;
-
-//    std::string linha = "";
-
-//    while(!arquivo.eof()) {
-//        std::getline(arquivo, linha);
-
-//        Cliente cli = Cliente(desmontar(QString::fromStdString(linha)));
-//        listaClientes.inserirInicio(cli);
-//        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
-//    }
-
-//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-//        if(listaClientes[i].getId() == QString::number(id)) {
-//            listaClientes[i].setNome(this->getNome());
-//            listaClientes[i].setEndereco(this->getEndereco());
-//            listaClientes[i].setTelefone(this->getTelefone());
-//        }
-//    }
-
-//    QString res = "";
-
-//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-//        res += listaClientes[i].montar();
-
-//        if(i < listaClientes.getQuantidadeDeElementos() - 1) res += "\n";
-//    }
-
-//    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
-
-//    arquivo.close();
-//}
 
 void Cliente::atualizar(Cliente cliente)
 {
@@ -198,54 +151,10 @@ void Cliente::atualizar(Cliente cliente)
     QString conteudo = "";
     for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
         conteudo += listaClientes[i].montar() + "\n";
-
-        //        if(i < listaClientes.getQuantidadeDeElementos() - 1) conteudo += "\n";
     }
 
     Utils::salvarArquivo(nomeArquivo, conteudo);
 }
-
-//void Cliente::deletar(long id)
-//{
-//    std::fstream arquivo;
-
-//    QString nomeDoArquivo = "baseCliente.txt";
-
-//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-//    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
-
-//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
-
-//    LLDE<Cliente> listaClientes;
-
-//    std::string linha = "";
-
-//    while(!arquivo.eof()) {
-//        std::getline(arquivo, linha);
-
-//        Cliente cli = Cliente(desmontar(QString::fromStdString(linha)));
-//        listaClientes.inserirInicio(cli);
-//    }
-
-//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-//        if(listaClientes[i].getId() == QString::number(id)) {
-//            listaClientes.retirarPos(i);
-//        }
-//    }
-
-//    QString res = "";
-
-//    for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
-//        res += listaClientes[i].montar();
-
-//        if(i < listaClientes.getQuantidadeDeElementos() - 1) res += "\n";
-//    }
-
-//    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
-
-//    arquivo.close();
-//}
 
 void Cliente::deletar(QString id)
 {
@@ -259,21 +168,14 @@ void Cliente::deletar(QString id)
     for(int i = 0; i < lista.length(); i++) {
         Cliente cli = desmontar(lista[i]);
 
-        //        throw QString::number(id);
-
         if(cli.getId() != id) {
             listaClientes.inserirInicio(cli);
         }
     }
 
-    //    throw QString::number(listaClientes.getQuantidadeDeElementos());
-
     QString conteudo = "";
-    //    for(int i = 0; i < lista.length(); i++) {
     for(int i = 0; i < listaClientes.getQuantidadeDeElementos(); i++) {
         conteudo += listaClientes[i].montar() + "\n";
-
-        //        if(i < listaClientes.getQuantidadeDeElementos() - 1) conteudo += "\n";
     }
 
     Utils::salvarArquivo(nomeArquivo, conteudo);

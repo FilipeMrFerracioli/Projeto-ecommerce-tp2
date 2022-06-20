@@ -4,7 +4,6 @@
 #include <QDialog>
 #include <QMessageBox>
 #include <adminstrador.h>
-//#include <QStringList>
 
 namespace Ui {
 class atualizar_cliente;

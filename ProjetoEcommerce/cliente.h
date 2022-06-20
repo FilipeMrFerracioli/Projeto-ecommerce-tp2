@@ -21,7 +21,6 @@ public:
     ~Cliente() {};
 
     QString getId();
-    //    void setId();
 
     void setNome(QString nome);
     QString getNome();

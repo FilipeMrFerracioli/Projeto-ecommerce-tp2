@@ -8,7 +8,6 @@ namespace minhaNamespace {
 class GenerateID
 {
 public:
-    //    long generateIDCliente();
     static long generateIDProduto();
     static long generateIDPedido();
 };

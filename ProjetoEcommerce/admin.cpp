@@ -12,8 +12,6 @@ Admin::Admin(QWidget *parent) :
 
     minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
     setGrid(adm.getListaClientes());
-
-
 }
 
 Admin::~Admin()
@@ -86,8 +84,6 @@ void Admin::on_pushButtonAttCliente_clicked()
 void Admin::on_pushButtonRmCliente_clicked()
 {
     try {
-        //        throw "erro";
-
         minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
 
         QString id = QInputDialog::getText(this, "Remover cliente", "ID:");
