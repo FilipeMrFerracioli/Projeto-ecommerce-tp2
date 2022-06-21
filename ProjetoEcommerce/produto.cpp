@@ -52,10 +52,16 @@ QString Produto::getDescricao()
     return descricao;
 }
 
+//void Produto::setQtdProdutos(int qtdProdutos)
+//{
+//    if(qtdProdutos == 0) throw QString("qtdProdutos mal formatado");
+//    this->qtdProdutos = qtdProdutos;
+//}
+
 void Produto::setQtdProdutos(int qtdProdutos)
 {
     if(qtdProdutos == 0) throw QString("qtdProdutos mal formatado");
-    this->qtdProdutos = qtdProdutos;
+    this->qtdProdutos += qtdProdutos;
 }
 
 int Produto::getQtdProdutos()
@@ -188,7 +194,7 @@ Produto Produto::desmontar(QString objeto)
     QStringList objProd = objeto.split(";"); // id;descricao;qtdProdutos;precoUn
 
     //    pode dar errado
-    if(objProd.length() != 4) throw QString("Produto inválido!");
+//    if(objProd.length() != 4) throw QString("Produto inválido!");
     //    pode dar errado
 
     Produto pd = Produto(objProd[1], objProd[2].toInt(), objProd[3].toDouble());

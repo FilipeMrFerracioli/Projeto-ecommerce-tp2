@@ -18,7 +18,19 @@ public:
     ~MainWindow();
 
     void setComboBoxProdutos();
+    void setComboBoxResumoPedidos();
+    void limparQuantidade();
+private slots:
+    void on_pushButtonAddCarrinho_clicked();
+
+    void on_comboBoxListaProduto_activated(int index);
+
+    void on_comboBoxResumoPedido_activated(int index);
+
+    void on_pushButtonRemoverCarrinho_clicked();
+
 private:
     Ui::MainWindow *ui;
+    minhaNamespace::CarrinhoCompras carrinhoCompras;
 };
 #endif // MAINWINDOW_H

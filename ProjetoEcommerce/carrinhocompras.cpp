@@ -22,6 +22,27 @@ void CarrinhoCompras::setAddProduto(QString idProduto, int qtdProduto)
     setAddTotalCompra(produto.getPrecoUn() * qtdProduto);
 }
 
+// esse aqui
+//void CarrinhoCompras::setAddProduto(QString idProduto, int qtdProduto)
+//{
+//    Produto produto = Produto();
+
+//    QString strProd = produto.consultar(idProduto, true);
+
+//    produto = produto.desmontar(strProd);
+//    produto.setQtdProdutos(qtdProduto);
+
+//    for(int i = 0; i < listaProdutos.getQuantidadeDeElementos(); i++) {
+//        if(listaProdutos[i].getIdProduto() == idProduto) {
+////            listaProdutos[i].setQtdProdutos(qtdProduto);
+//            produto.setQtdProdutos(qtdProduto);
+//        }
+//    }
+
+//    listaProdutos.inserirInicio(produto);
+//    setAddTotalCompra(produto.getPrecoUn() * qtdProduto);
+//}
+
 /*void CarrinhoCompras::setAddProduto(long idProduto, int qtdProduto)
 {
     std::ifstream arquivo;
@@ -111,20 +132,34 @@ double CarrinhoCompras::getTotalCompra()
     return totalCompra;
 }
 
-QString CarrinhoCompras::getListaProdutos()
+//QString CarrinhoCompras::getListaProdutos()
+//{
+//    if(listaProdutos.getQuantidadeDeElementos() == 0) throw QString("Carrinho de compras vazio");
+
+//    QString res = "";
+//    for(int i = 0; i < listaProdutos.getQuantidadeDeElementos(); i++) {
+//        Produto prod = listaProdutos[i];
+
+//        res += prod.montar();
+
+//        if(i < listaProdutos.getQuantidadeDeElementos() - 1) res += "\n";
+//    }
+
+//    return res;
+//}
+
+QStringList CarrinhoCompras::getListaProdutos()
 {
     if(listaProdutos.getQuantidadeDeElementos() == 0) throw QString("Carrinho de compras vazio");
 
-    QString res = "";
+    QStringList lista;
     for(int i = 0; i < listaProdutos.getQuantidadeDeElementos(); i++) {
         Produto prod = listaProdutos[i];
-
-        res += prod.montar();
-
-        if(i < listaProdutos.getQuantidadeDeElementos() - 1) res += "\n";
+        //        lista[i] = prod.montar();
+        lista += prod.montar();
     }
 
-    return res;
+    return lista;
 }
 
 /*QString CarrinhoCompras::getListaProdutos()

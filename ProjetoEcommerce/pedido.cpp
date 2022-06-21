@@ -144,7 +144,8 @@ QString Pedido::consultar(QString idPedido, bool naoFormatado) {
         }
     }
 
-    return QString("O pedido não existe");
+    return QString("O pedido"
+                   " não existe");
 }
 
 QString Pedido::montar()

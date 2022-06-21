@@ -6,26 +6,127 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //    ui->widgetHome->hide();
-    //    ui->tabWidget->setTabText(0, "Cuzin");
     //        Admin adm;
     //        adm.exec();
     setComboBoxProdutos();
 }
 
+using namespace minhaNamespace;
+
 void MainWindow::setComboBoxProdutos() {
     QStringList listaProdutos = minhaNamespace::Utils::abrirArquivo("baseProduto.txt");
 
     for(int i = 0; i < listaProdutos.length(); i++) {
-        minhaNamespace::Produto prod = minhaNamespace::Produto();
-        prod = prod.desmontar(listaProdutos[i]);
+        QString produto = listaProdutos[i].split(";")[1];
+        QString id = listaProdutos[i].split(";")[0];
 
-        ui->comboBoxListaProduto->addItem(prod.getDescricao());
+        ui->comboBoxListaProduto->addItem(produto, id.toInt());
     }
+}
+
+void MainWindow::setComboBoxResumoPedidos() {
+    //    QStringList listaProdutos = minhaNamespace::Utils::abrirArquivo("baseProduto.txt");
+    ui->comboBoxResumoPedido->clear();
+    QStringList listaProdutos = carrinhoCompras.getListaProdutos();
+
+    for(int i = 0; i < carrinhoCompras.getListaProdutos().length(); i++) {
+        QString produto = listaProdutos[i].split(";")[1];
+        QString id = listaProdutos[i].split(";")[0];
+
+        ui->comboBoxResumoPedido->addItem(produto, id.toInt());
+    }
+}
+
+void MainWindow::limparQuantidade()
+{
+    ui->doubleSpinBoxQuantidade->clear();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::on_pushButtonAddCarrinho_clicked()
+{
+    try {
+        Produto produto = Produto();
+
+        QStringList infoProduto = produto.consultar(ui->comboBoxListaProduto->currentData().toString(), true).split(";");
+        produto = Produto(infoProduto[1], infoProduto[2].toInt(), infoProduto[3].toDouble());
+        produto.setIdProduto(infoProduto[0]);
+
+        carrinhoCompras.setAddProduto(produto.getIdProduto(), ui->doubleSpinBoxQuantidade->text().toInt());
+
+        //        QString strProd = infoProduto[1] + " X" + QString::number(ui->doubleSpinBoxQuantidade->text().toInt());
+        //        strProd += " - R$ " + infoProduto[3] + "\n";
+
+        //        throw QString::number(carrinhoCompras.getListaProdutos().length());
+
+        QString strProd = "";
+        for(int i = 0; i < carrinhoCompras.getListaProdutos().length(); i++) {
+            QStringList lista = carrinhoCompras.getListaProdutos();
+            strProd += lista[i].split(";")[1] + " X" + lista[i].split(";")[2]/*QString::number(ui->doubleSpinBoxQuantidade->text().toInt()*/;
+            strProd += " - R$ " + lista[i].split(";")[3];
+
+            if(i < carrinhoCompras.getListaProdutos().length() - 1) strProd += "\n";
+        }
+
+        //        QStringList lsProd = carrinhoCompras.getListaProdutos().split("");
+        //                QString strProd = lsProd[1] + " X" + QString::number(ui->doubleSpinBoxQuantidade->text().toInt());
+        //                strProd += " - R$ " + lsProd[3] + "\n";
+
+
+
+        ui->textEditResumoPedido->setText(strProd.toUpper());
+        ui->lineEditTotalPedido->setText(QString::number(carrinhoCompras.getTotalCompra()));
+        setComboBoxResumoPedidos();
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_comboBoxListaProduto_activated(int index)
+{
+    try {
+        ui->doubleSpinBoxQuantidade->setValue(1);
+
+        Produto produto = Produto();
+
+        QStringList infoProduto = produto.consultar(ui->comboBoxListaProduto->currentData().toString(), true).split(";");
+
+        QString strProd = infoProduto[1] + "\n";
+        strProd += "\n\n";
+        strProd += "Preço (un): R$ " + infoProduto[3] + "\n";
+
+        //        strProd += "\n\n";
+        //        strProd += "Total: R$ " + QString::number(infoProduto[3].toDouble() * ui->doubleSpinBoxQuantidade->text().toDouble());
+
+        ui->textEditDescricaoProduto->setText(strProd.toUpper());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_comboBoxResumoPedido_activated(int index)
+{
+    try {
+        //setComboBoxResumoPedidos();
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonRemoverCarrinho_clicked()
+{
+    try {
+//        carrinhoCompras.setRmProduto(ui)
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 

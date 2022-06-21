@@ -22,7 +22,8 @@ public:
     void setRmTotalCompra(double preco);
     double getTotalCompra();
 
-    QString getListaProdutos();
+    QStringList getListaProdutos();
+//    QString getListaProdutos();
 };
 }
 
