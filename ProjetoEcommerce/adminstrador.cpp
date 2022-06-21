@@ -33,10 +33,15 @@ void Adminstrador::criar(Produto produto){
 //    arquivo.close();
 //}
 
-QString Adminstrador::consultar(QString id, bool naoFormatado)
+QString Adminstrador::consultar(Cliente cliente, bool naoFormatado)
 {
-    Cliente cliente;
-    return cliente.consultar(id, naoFormatado);
+    return cliente.consultar(cliente.getId(), naoFormatado);
+}
+
+QString Adminstrador::consultar(Produto produto, bool naoFormatado)
+{
+//    throw produto.getIdProduto();
+    return produto.consultar(produto.getIdProduto(), naoFormatado);
 }
 
 //QString Adminstrador::consultar(Produto produto)
@@ -79,56 +84,64 @@ void Adminstrador::atualizar(Cliente cliente)
     cliente.atualizar(cliente);
 }
 
-void Adminstrador::atualizar(Produto produto)
-{
-    std::fstream arquivo;
-
-    QString nomeDoArquivo = "baseProduto.txt";
-
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
-
-    LLDE<Produto> listaProduto;
-
-    std::string linha = "";
-
-    while(!arquivo.eof()) {
-        std::getline(arquivo, linha);
-
-        Produto prod = Produto();
-        prod = Produto(prod.desmontar(QString::fromStdString(linha)));
-        listaProduto.inserirInicio(prod);
-        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
-    }
-
-    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
-        if(listaProduto[i].getIdProduto() == produto.getIdProduto()) {
-            listaProduto[i].setDescricao(produto.getDescricao());
-            listaProduto[i].setPrecoUn(produto.getPrecoUn());
-            listaProduto[i].setQtdProdutos(produto.getQtdProdutos());
-        }
-    }
-
-    QString res = "";
-
-    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
-        res += listaProduto[i].montar();
-
-        if(i < listaProduto.getQuantidadeDeElementos() - 1) res += "\n";
-    }
-
-    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
-
-    arquivo.close();
+void Adminstrador::atualizar(Produto produto) {
+    produto.atualizar(produto);
 }
 
-void Adminstrador::deletar(QString id)
+//void Adminstrador::atualizar(Produto produto)
+//{
+//    std::fstream arquivo;
+
+//    QString nomeDoArquivo = "baseProduto.txt";
+
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+//    arquivo.open(nomeDoArquivo.toStdString().c_str(), std::ios::out);
+
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+
+//    LLDE<Produto> listaProduto;
+
+//    std::string linha = "";
+
+//    while(!arquivo.eof()) {
+//        std::getline(arquivo, linha);
+
+//        Produto prod = Produto();
+//        prod = Produto(prod.desmontar(QString::fromStdString(linha)));
+//        listaProduto.inserirInicio(prod);
+//        //        if(!(cli.getId() == id)) listaClientes.inserirInicio(cli);
+//    }
+
+//    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
+//        if(listaProduto[i].getIdProduto() == produto.getIdProduto()) {
+//            listaProduto[i].setDescricao(produto.getDescricao());
+//            listaProduto[i].setPrecoUn(produto.getPrecoUn());
+//            listaProduto[i].setQtdProdutos(produto.getQtdProdutos());
+//        }
+//    }
+
+//    QString res = "";
+
+//    for(int i = 0; i < listaProduto.getQuantidadeDeElementos(); i++) {
+//        res += listaProduto[i].montar();
+
+//        if(i < listaProduto.getQuantidadeDeElementos() - 1) res += "\n";
+//    }
+
+//    arquivo<< "\n" << res.toStdString().c_str() << std::endl;
+
+//    arquivo.close();
+//}
+
+void Adminstrador::deletar(Cliente cliente)
 {
-    Cliente cliente;
-    cliente.deletar(id);
+    cliente.deletar(cliente.getId());
+}
+
+void Adminstrador::deletar(Produto produto)
+{
+    produto.deletar(produto.getIdProduto());
 }
 
 //void Adminstrador::deletar(Produto produto)

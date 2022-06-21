@@ -21,7 +21,9 @@ atualizar_cliente::~atualizar_cliente()
 void atualizar_cliente::on_pushButtonBuscar_clicked()
 {
     try {
-        QStringList listaCliente = adm.consultar(ui->lineEditID->text(), true).split(";");
+        minhaNamespace::Cliente cli = minhaNamespace::Cliente();
+        cli.setCpf(ui->lineEditID->text());
+        QStringList listaCliente = adm.consultar(cli, true).split(";");
 
         ui->lineEditID->setText(listaCliente[0]);
         ui->lineEditNome->setText(listaCliente[1]);

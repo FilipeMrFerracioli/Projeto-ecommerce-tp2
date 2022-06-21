@@ -309,6 +309,7 @@ debug/moc_adicionar_produto.cpp: ../ProjetoEcommerce/adicionar_produto.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
@@ -464,6 +465,7 @@ debug/moc_admin.cpp: ../ProjetoEcommerce/admin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
@@ -615,6 +617,7 @@ debug/moc_atualizar_cliente.cpp: ../ProjetoEcommerce/atualizar_cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
@@ -761,6 +764,7 @@ debug/moc_atualizar_produto.cpp: ../ProjetoEcommerce/atualizar_produto.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
@@ -919,6 +923,7 @@ debug/moc_mainwindow.cpp: ../ProjetoEcommerce/mainwindow.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
@@ -1068,6 +1073,7 @@ debug/moc_telaclienteadm.cpp: ../ProjetoEcommerce/telaclienteadm.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
@@ -1257,6 +1263,7 @@ debug/adicionar_produto.o: ../ProjetoEcommerce/adicionar_produto.cpp ../ProjetoE
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
@@ -1411,65 +1418,14 @@ debug/admin.o: ../ProjetoEcommerce/admin.cpp ../ProjetoEcommerce/admin.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
 		../ProjetoEcommerce/atualizar_cliente.h \
 		../ProjetoEcommerce/adicionar_produto.h \
 		../ProjetoEcommerce/atualizar_produto.h \
-		ui_admin.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QGridLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QHeaderView \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qheaderview.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qicon.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QTabWidget \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QTableWidget \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtablewidget.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtableview.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QWidget
+		ui_admin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\admin.o ..\ProjetoEcommerce\admin.cpp
 
 debug/adminstrador.o: ../ProjetoEcommerce/adminstrador.cpp ../ProjetoEcommerce/adminstrador.h \
@@ -1530,6 +1486,7 @@ debug/adminstrador.o: ../ProjetoEcommerce/adminstrador.cpp ../ProjetoEcommerce/a
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringmatcher.h \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\adminstrador.o ..\ProjetoEcommerce\adminstrador.cpp
 
@@ -1674,51 +1631,9 @@ debug/atualizar_cliente.o: ../ProjetoEcommerce/atualizar_cliente.cpp ../ProjetoE
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
-		ui_atualizar_cliente.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QGridLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qicon.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QVBoxLayout
+		ui_atualizar_cliente.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\atualizar_cliente.o ..\ProjetoEcommerce\atualizar_cliente.cpp
 
 debug/atualizar_produto.o: ../ProjetoEcommerce/atualizar_produto.cpp ../ProjetoEcommerce/atualizar_produto.h \
@@ -1862,6 +1777,7 @@ debug/atualizar_produto.o: ../ProjetoEcommerce/atualizar_produto.cpp ../ProjetoE
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		ui_atualizar_produto.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\atualizar_produto.o ..\ProjetoEcommerce\atualizar_produto.cpp
@@ -1921,7 +1837,8 @@ debug/carrinhocompras.o: ../ProjetoEcommerce/carrinhocompras.cpp ../ProjetoEcomm
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
 		../ProjetoEcommerce/LLDE.h \
-		../ProjetoEcommerce/No.h
+		../ProjetoEcommerce/No.h \
+		../ProjetoEcommerce/generateid.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\carrinhocompras.o ..\ProjetoEcommerce\carrinhocompras.cpp
 
 debug/cliente.o: ../ProjetoEcommerce/cliente.cpp ../ProjetoEcommerce/cliente.h \
@@ -1981,10 +1898,52 @@ debug/cliente.o: ../ProjetoEcommerce/cliente.cpp ../ProjetoEcommerce/cliente.h \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
 		../ProjetoEcommerce/LLDE.h \
-		../ProjetoEcommerce/No.h
+		../ProjetoEcommerce/No.h \
+		../ProjetoEcommerce/generateid.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\cliente.o ..\ProjetoEcommerce\cliente.cpp
 
-debug/generateid.o: ../ProjetoEcommerce/generateid.cpp ../ProjetoEcommerce/generateid.h
+debug/generateid.o: ../ProjetoEcommerce/generateid.cpp ../ProjetoEcommerce/generateid.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QString \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstring.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qchar.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qglobal.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qconfig-bootstrapped.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qconfig.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtcore-config.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qsystemdetection.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qprocessordetection.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcompilerdetection.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtypeinfo.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcontainerfwd.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qsysinfo.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qlogging.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qflags.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qatomic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbasicatomic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qgenericatomic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qglobalstatic.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qnumeric.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qversiontagging.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbytearray.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qrefcount.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qnamespace.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qtmetamacros.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qarraydata.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qpair.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qarraydatapointer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qarraydataops.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcontainertools_impl.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qbytearrayview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringliteral.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringalgorithms.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qanystringview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qutf8stringview.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringtokenizer.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qstringbuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\generateid.o ..\ProjetoEcommerce\generateid.cpp
 
 debug/main.o: ../ProjetoEcommerce/main.cpp ../ProjetoEcommerce/mainwindow.h \
@@ -2140,6 +2099,7 @@ debug/main.o: ../ProjetoEcommerce/main.cpp ../ProjetoEcommerce/mainwindow.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
@@ -2321,79 +2281,14 @@ debug/mainwindow.o: ../ProjetoEcommerce/mainwindow.cpp ../ProjetoEcommerce/mainw
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
 		../ProjetoEcommerce/atualizar_cliente.h \
 		../ProjetoEcommerce/adicionar_produto.h \
 		../ProjetoEcommerce/atualizar_produto.h \
-		ui_mainwindow.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/QAction \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qaction.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QComboBox \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qcombobox.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qrubberband.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QDoubleSpinBox \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qspinbox.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QFrame \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QGridLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QHeaderView \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qheaderview.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QTabWidget \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QTableWidget \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtablewidget.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtableview.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QTextEdit \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtextedit.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QVBoxLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QWidget
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\ProjetoEcommerce\mainwindow.cpp
 
 debug/pedido.o: ../ProjetoEcommerce/pedido.cpp ../ProjetoEcommerce/pedido.h \
@@ -2452,7 +2347,8 @@ debug/pedido.o: ../ProjetoEcommerce/pedido.cpp ../ProjetoEcommerce/pedido.h \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
 		../ProjetoEcommerce/LLDE.h \
-		../ProjetoEcommerce/No.h
+		../ProjetoEcommerce/No.h \
+		../ProjetoEcommerce/generateid.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\pedido.o ..\ProjetoEcommerce\pedido.cpp
 
 debug/produto.o: ../ProjetoEcommerce/produto.cpp ../ProjetoEcommerce/produto.h \
@@ -2509,7 +2405,8 @@ debug/produto.o: ../ProjetoEcommerce/produto.cpp ../ProjetoEcommerce/produto.h \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
 		../ProjetoEcommerce/LLDE.h \
-		../ProjetoEcommerce/No.h
+		../ProjetoEcommerce/No.h \
+		../ProjetoEcommerce/generateid.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\produto.o ..\ProjetoEcommerce\produto.cpp
 
 debug/telaclienteadm.o: ../ProjetoEcommerce/telaclienteadm.cpp ../ProjetoEcommerce/telaclienteadm.h \
@@ -2651,53 +2548,11 @@ debug/telaclienteadm.o: ../ProjetoEcommerce/telaclienteadm.cpp ../ProjetoEcommer
 		C:/Qt/6.2.3/mingw_64/include/QtCore/QStringList \
 		../ProjetoEcommerce/ICRUD.h \
 		../ProjetoEcommerce/utils.h \
+		../ProjetoEcommerce/generateid.h \
 		../ProjetoEcommerce/cliente.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QMessageBox \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qmessagebox.h \
-		ui_telaclienteadm.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QGridLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qgridlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qframe.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextdocument.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QLineEdit \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qlineedit.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qtextoption.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.2.3/mingw_64/include/QtGui/qicon.h \
-		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QVBoxLayout
+		ui_telaclienteadm.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\telaclienteadm.o ..\ProjetoEcommerce\telaclienteadm.cpp
 
 debug/utils.o: ../ProjetoEcommerce/utils.cpp ../ProjetoEcommerce/utils.h \

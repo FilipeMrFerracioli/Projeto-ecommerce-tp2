@@ -23,16 +23,16 @@ public:
     virtual void criar(Cliente cliente);
     virtual void criar(Produto produto);
 
-    virtual QString consultar(QString id, bool naoFormatado);
-    //    virtual QString consultar(Cliente cliente);
-    //    virtual QString consultar(Produto produto);
+//    virtual QString consultar(QString id, bool naoFormatado);
+        virtual QString consultar(Cliente cliente, bool naoFormatado);
+        virtual QString consultar(Produto produto, bool naoFormatado);
 
     virtual void atualizar(Cliente cliente);
     virtual void atualizar(Produto produto);
 
-    //    virtual void deletar(Cliente cliente);
-    //    virtual void deletar(Produto produto);
-    virtual void deletar(QString id);
+        virtual void deletar(Cliente cliente);
+        virtual void deletar(Produto produto);
+//    virtual void deletar(QString id);
 
     LLDE<Cliente> getListaClientes();
     LLDE<Produto> getListaProdutos();

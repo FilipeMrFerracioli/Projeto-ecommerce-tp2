@@ -113,7 +113,7 @@ void Produto::criar()
 
 QString Produto::consultar(QString idProduto, bool naoFormatado)
 {
-    if(idProduto.isEmpty() || idProduto.length() != 11) throw QString("ID inválido");
+    if(idProduto.isEmpty()) throw QString("ID inválido");
 
     Utils::verificarSeIDNaoExiste(nomeArquivo, idProduto);
 

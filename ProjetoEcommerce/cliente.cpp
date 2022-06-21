@@ -159,7 +159,7 @@ void Cliente::atualizar(Cliente cliente)
 
 void Cliente::deletar(QString id)
 {
-    if(id.isEmpty()) return;
+    if(id.isEmpty() || id.length() != 11) throw QString("ID inválido");
 
     Utils::verificarSeIDNaoExiste(nomeArquivo, id);
 

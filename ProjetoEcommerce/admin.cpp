@@ -121,7 +121,10 @@ void Admin::on_pushButtonRmCliente_clicked()
 
         QString id = QInputDialog::getText(this, "Remover cliente", "ID:");
 
-        adm.deletar(id);
+        minhaNamespace::Cliente cli = minhaNamespace::Cliente();
+        cli.setCpf(id);
+
+        adm.deletar(cli);
 
         setGridCliente(adm.getListaClientes());
     }  catch (QString &erro) {
@@ -138,7 +141,10 @@ void Admin::on_pushButtonLocCliente_clicked()
 
         QString id = QInputDialog::getText(this, "Consultar cliente", "ID:");
 
-        QMessageBox::information(this, "Consultar", adm.consultar(id, false));
+        minhaNamespace::Cliente cli = minhaNamespace::Cliente();
+        cli.setCpf(id);
+
+        QMessageBox::information(this, "Consultar", adm.consultar(cli, false));
 
         setGridCliente(adm.getListaClientes());
     }  catch (QString &erro) {
@@ -164,19 +170,53 @@ void Admin::on_pushButtonAddProduto_clicked()
 // AttProduto
 void Admin::on_pushButtonAttProduto_clicked()
 {
+    try {
+        atualizar_produto produto;
+        produto.exec();
 
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
+        setGridProduto(adm.getListaProdutos());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // RmProduto
 void Admin::on_pushButtonRmProduto_clicked()
 {
+    try {
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
 
+        QString id = QInputDialog::getText(this, "Remover produto", "ID:");
+
+        minhaNamespace::Produto prod = minhaNamespace::Produto();
+        prod.setIdProduto(id);
+
+        adm.deletar(prod);
+
+        setGridProduto(adm.getListaProdutos());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // LocProduto
 void Admin::on_pushButtonLocProduto_clicked()
 {
+    try {
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
 
+        QString id = QInputDialog::getText(this, "Consultar produto", "ID:");
+
+        minhaNamespace::Produto prod = minhaNamespace::Produto();
+        prod.setIdProduto(id);
+
+        QMessageBox::information(this, "Consultar", adm.consultar(prod, false));
+
+        setGridCliente(adm.getListaClientes());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }
 
 // LocPedido

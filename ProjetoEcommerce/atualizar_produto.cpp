@@ -20,7 +20,9 @@ atualizar_produto::~atualizar_produto()
 void atualizar_produto::on_pushButtonBuscar_clicked()
 {
     try {
-        QStringList listaProduto = adm.consultar(ui->lineEditID->text(), true).split(";");
+        minhaNamespace::Produto prod = minhaNamespace::Produto();
+        prod.setIdProduto(ui->lineEditID->text());
+        QStringList listaProduto = adm.consultar(prod, true).split(";");
 
         ui->lineEditID->setText(listaProduto[0]);
         ui->lineEditDescricao->setText(listaProduto[1]);
@@ -42,7 +44,8 @@ void atualizar_produto::on_pushButtonAtualizar_clicked()
     try {
         minhaNamespace::Produto produtoAtt = minhaNamespace::Produto();
 
-        produtoAtt.setIdProduto(produto.getIdProduto());
+//        produtoAtt.setIdProduto(produto.getIdProduto());
+        produtoAtt.setIdProduto(ui->lineEditID->text());
         produtoAtt.setDescricao(ui->lineEditDescricao->text());
         produtoAtt.setQtdProdutos(ui->lineEditQuantidade->text().toInt());
         produtoAtt.setPrecoUn(ui->lineEditPreco->text().toDouble());
