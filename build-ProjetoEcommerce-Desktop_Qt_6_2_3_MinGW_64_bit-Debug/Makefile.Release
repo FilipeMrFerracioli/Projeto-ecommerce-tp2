@@ -930,6 +930,10 @@ release/moc_mainwindow.cpp: ../ProjetoEcommerce/mainwindow.h \
 		../ProjetoEcommerce/atualizar_cliente.h \
 		../ProjetoEcommerce/adicionar_produto.h \
 		../ProjetoEcommerce/atualizar_produto.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
 		release/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
 	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/mrffi/Documents/PUC/TP2/ProjetoEcommerce/build-ProjetoEcommerce-Desktop_Qt_6_2_3_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/mrffi/Documents/PUC/TP2/ProjetoEcommerce/ProjetoEcommerce -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ..\ProjetoEcommerce\mainwindow.h -o release\moc_mainwindow.cpp
@@ -2106,6 +2110,10 @@ release/main.o: ../ProjetoEcommerce/main.cpp ../ProjetoEcommerce/mainwindow.h \
 		../ProjetoEcommerce/atualizar_cliente.h \
 		../ProjetoEcommerce/adicionar_produto.h \
 		../ProjetoEcommerce/atualizar_produto.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qcoreapplication.h \
@@ -2124,7 +2132,6 @@ release/main.o: ../ProjetoEcommerce/main.cpp ../ProjetoEcommerce/mainwindow.h \
 		C:/Qt/6.2.3/mingw_64/include/QtCore/qexception.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.2.3/mingw_64/include/QtGui/qguiapplication_platform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\ProjetoEcommerce\main.cpp
 
@@ -2288,6 +2295,10 @@ release/mainwindow.o: ../ProjetoEcommerce/mainwindow.cpp ../ProjetoEcommerce/mai
 		../ProjetoEcommerce/atualizar_cliente.h \
 		../ProjetoEcommerce/adicionar_produto.h \
 		../ProjetoEcommerce/atualizar_produto.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/QDateTime \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.2.3/mingw_64/include/QtCore/qlocale.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\ProjetoEcommerce\mainwindow.cpp
 

@@ -5,8 +5,8 @@ namespace minhaNamespace {
 Pedido::Pedido():
     idPedido(""),
     idCliente(""),
-    dataCompra(""),
-    carrinhoCompras()
+    dataCompra("")
+  //    carrinhoCompras()
 {
 
 }
@@ -14,10 +14,10 @@ Pedido::Pedido():
 Pedido::Pedido(QString idPedido, QString idCliente, QString dataCompra):
     idPedido(""),
     idCliente(""),
-    dataCompra(""),
-    carrinhoCompras()
+    dataCompra("")
+  //    carrinhoCompras()
 {
-    setIdPedido(idPedido);
+    //    setIdPedido(idPedido);
     setIdCliente(idCliente);
     setDdataCompra(dataCompra);
 }
@@ -27,6 +27,11 @@ void Pedido::setIdPedido(QString idPedido)
     if(idPedido == "") throw QString("idPedido mal formatado");
     this->idPedido = idPedido;
 }
+
+//void Pedido::setIdPedido()
+//{
+//    idPedido = GenerateID::generateIDPedido();
+//}
 
 QString Pedido::getIdPedido()
 {
@@ -72,6 +77,26 @@ QString Pedido::getPedido(QString idPedido, QString idCliente, QString dataCompr
     res += "Data da compra: " + dataCompra;
 
     return res;
+}
+
+void Pedido::realizarPedido(QString idCliente, CarrinhoCompras carrinho)
+{
+    QString conteudo = "";
+
+    conteudo += getIdPedido() + ";";
+    conteudo += idCliente + ";";
+    conteudo += getDataCompra() + ";";
+
+    conteudo += "|";
+    for(int i = 0; i < carrinho.getListaProdutos().length(); i++) {
+        conteudo += carrinho.getListaProdutos()[i];
+
+        if(i < carrinho.getListaProdutos().length() - 1) conteudo += ",";
+    }
+    conteudo += "|";
+
+    Utils::salvarArquivo(nomeArquivo, conteudo, true);
+    //    conteudo += carrinho.getListaProdutos();
 }
 
 //QString Pedido::realizarPedido()
@@ -138,7 +163,12 @@ QString Pedido::consultar(QString idPedido, bool naoFormatado) {
 
     QString res = "";
     for(int i = 0; i < lista.length(); i++) {
+        QStringList ls = lista[i].split(";");
+//        throw QString(lista[i]);
         Pedido ped = desmontar(lista[i]);
+//        throw ls[0];
+//        throw ped.getIdPedido();
+        ped.setIdPedido(ls[0]);
         if(ped.getIdPedido() == idPedido) {
             return res = getPedido(ped.getIdPedido(), ped.getIdCliente(), ped.getDataCompra(), naoFormatado);
         }
@@ -159,15 +189,33 @@ QString Pedido::montar()
     return objeto; // idPedido;idCliente;dataCompra
 }
 
+//Pedido Pedido::desmontar(QString objeto)
+//{
+//    if(objeto.isEmpty()) throw QString("Erro ao converter para Pedido");
+
+//    QStringList objPed = objeto.split(";"); // idPedido;idCliente;dataCompra
+
+//    //    Pedido ped = Pedido(objPed[1], objPed[2], objPed[3]);
+
+//    return Pedido(objPed[0], objPed[1], objPed[2]);
+//}
+
 Pedido Pedido::desmontar(QString objeto)
 {
     if(objeto.isEmpty()) throw QString("Erro ao converter para Pedido");
 
-    QStringList objPed = objeto.split(";"); // idPedido;idCliente;dataCompra
+    QStringList objPed = objeto.split("|"); // idPedido;idCliente;dataCompra;|produtos,|
+
+    QString ped = objPed[0];
+
+//    throw objeto;
+
+    QStringList pedSeparado = ped.split(";");
 
     //    Pedido ped = Pedido(objPed[1], objPed[2], objPed[3]);
+//    throw pedSeparado[0];
 
-    return Pedido(objPed[0], objPed[1], objPed[2]);
+    return Pedido(pedSeparado[0], pedSeparado[1], pedSeparado[2]);
 }
 
 }

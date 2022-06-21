@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidgetCliente">
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_Home">
        <attribute name="title">
@@ -409,39 +409,73 @@
        <attribute name="title">
         <string>Page</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="1" column="0">
-         <widget class="QTableWidget" name="tableWidgetGridPedidos">
-          <column>
+       <widget class="QTableWidget" name="tableWidgetGridPedidos">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>72</y>
+          <width>621</width>
+          <height>391</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ID cliente</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Data</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QLabel" name="label_25">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>11</y>
+          <width>251</width>
+          <height>54</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Meus pedidos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>200</y>
+          <width>156</width>
+          <height>98</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+         <item>
+          <widget class="QLabel" name="label_10">
            <property name="text">
-            <string>ID</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;ID do pedido:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-          </column>
-          <column>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditConsultarPedido"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonConsultarPedido">
            <property name="text">
-            <string>Data</string>
+            <string>Consultar</string>
            </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Valor (R$)</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Endereço</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_25">
-          <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Meus pedidos&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </widget>
     </item>

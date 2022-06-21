@@ -263,8 +263,45 @@ LLDE<Produto> Adminstrador::getListaProdutos()
     return aux;
 }
 
-LLDE<Pedido> Adminstrador::getListaPedidos()
-{
+//LLDE<Pedido> Adminstrador::getListaPedidos()
+//{
+//    std::ifstream arquivo;
+
+//    QString nomeDoArquivo = "basePedido.txt";
+
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+//    arquivo.open(nomeDoArquivo.toStdString().c_str());
+
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
+
+//    std::string linha = "";
+
+//    LLDE<Pedido> aux;
+
+//    while(!arquivo.eof()) {
+//        std::getline(arquivo, linha);
+
+//        QString line = QString::fromStdString(linha);
+
+////        throw QString::number(line.length());
+
+//        if(!line.isEmpty()) {
+//            QStringList linha;
+
+//            linha = line.split(";");
+
+//            Pedido ped = Pedido(linha[0], linha[1], linha[2]);
+
+//            aux.inserirInicio(ped);
+//        }
+//    }
+
+//    arquivo.close();
+
+//    return aux;
+//}
+LLDE<Pedido> Adminstrador::getListaPedidos(){
     std::ifstream arquivo;
 
     QString nomeDoArquivo = "basePedido.txt";
@@ -288,8 +325,11 @@ LLDE<Pedido> Adminstrador::getListaPedidos()
             QStringList linha;
 
             linha = line.split(";");
+//            throw linha[3];
 
             Pedido ped = Pedido(linha[0], linha[1], linha[2]);
+//            prod.setIdProduto(linha[0]);
+            ped.setIdPedido(linha[0]);
 
             aux.inserirInicio(ped);
         }
@@ -299,5 +339,4 @@ LLDE<Pedido> Adminstrador::getListaPedidos()
 
     return aux;
 }
-
 }

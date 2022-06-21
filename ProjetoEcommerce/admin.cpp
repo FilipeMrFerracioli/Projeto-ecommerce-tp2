@@ -14,6 +14,7 @@ Admin::Admin(QWidget *parent) :
         minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
         setGridCliente(adm.getListaClientes());
         setGridProduto(adm.getListaProdutos());
+        setGridPedidos(adm.getListaPedidos());
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }
@@ -82,6 +83,30 @@ void Admin::setGridProduto(minhaNamespace::LLDE<minhaNamespace::Produto> lista)
         QTableWidgetItem *preco = 0;
         preco = new QTableWidgetItem(QString::number(lista[i].getPrecoUn()));
         ui->tableWidgetProduto->setItem(linha, 3, preco);
+    }
+}
+
+// Grid pedidos
+void Admin::setGridPedidos(minhaNamespace::LLDE<minhaNamespace::Pedido> lista)
+{
+    ui->tableWidgetPedidos->clearContents();
+    ui->tableWidgetPedidos->setRowCount(0);
+
+    for(int i = 0; i < lista.getQuantidadeDeElementos(); i++) {
+        int linha = ui->tableWidgetPedidos->rowCount();
+        ui->tableWidgetPedidos->insertRow(linha);
+
+        QTableWidgetItem *id = 0;
+        id = new QTableWidgetItem(lista[i].getIdPedido());
+        ui->tableWidgetPedidos->setItem(linha, 0, id);
+
+        QTableWidgetItem *idCliente = 0;
+        idCliente = new QTableWidgetItem(lista[i].getIdCliente());
+        ui->tableWidgetPedidos->setItem(linha, 1, idCliente);
+
+        QTableWidgetItem *data = 0;
+        data = new QTableWidgetItem(lista[i].getDataCompra());
+        ui->tableWidgetPedidos->setItem(linha, 2, data);
     }
 }
 
@@ -240,5 +265,18 @@ void Admin::on_pushButtonRmPedido_clicked()
 // LocPedido
 void Admin::on_pushButtonLocPedido_clicked()
 {
+    try {
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
 
+//        QString id = QInputDialog::getText(this, "Consultar produto", "ID:");
+
+//        minhaNamespace::Produto prod = minhaNamespace::Produto();
+//        prod.setIdProduto(id);
+
+//        QMessageBox::information(this, "Consultar", adm.consultar(prod, false));
+
+        setGridPedidos(adm.getListaPedidos());
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
 }

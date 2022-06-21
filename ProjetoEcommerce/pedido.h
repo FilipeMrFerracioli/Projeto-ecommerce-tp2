@@ -38,7 +38,7 @@ public:
 
     CarrinhoCompras getCarrinhoCompras() { return carrinhoCompras; }
 
-    QString realizarPedido();
+    void realizarPedido(QString idCliente, CarrinhoCompras carrinho);
 
     virtual QString consultar(QString idPedido, bool naoFormatado = 0);
 

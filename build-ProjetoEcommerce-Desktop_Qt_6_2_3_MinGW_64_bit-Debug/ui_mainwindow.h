@@ -109,9 +109,13 @@ public:
     QPushButton *pushButtonAccCancelar;
     QPushButton *pushButtonAccSalvar;
     QWidget *tabClientePedidos;
-    QGridLayout *gridLayout_2;
     QTableWidget *tableWidgetGridPedidos;
     QLabel *label_25;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout_11;
+    QLabel *label_10;
+    QLineEdit *lineEditConsultarPedido;
+    QPushButton *pushButtonConsultarPedido;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -443,27 +447,40 @@ public:
         tabWidgetCliente->addTab(tab_Acc, QString());
         tabClientePedidos = new QWidget();
         tabClientePedidos->setObjectName(QString::fromUtf8("tabClientePedidos"));
-        gridLayout_2 = new QGridLayout(tabClientePedidos);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         tableWidgetGridPedidos = new QTableWidget(tabClientePedidos);
-        if (tableWidgetGridPedidos->columnCount() < 4)
-            tableWidgetGridPedidos->setColumnCount(4);
+        if (tableWidgetGridPedidos->columnCount() < 3)
+            tableWidgetGridPedidos->setColumnCount(3);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tableWidgetGridPedidos->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidgetGridPedidos->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         tableWidgetGridPedidos->setHorizontalHeaderItem(2, __qtablewidgetitem2);
-        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        tableWidgetGridPedidos->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         tableWidgetGridPedidos->setObjectName(QString::fromUtf8("tableWidgetGridPedidos"));
-
-        gridLayout_2->addWidget(tableWidgetGridPedidos, 1, 0, 1, 1);
-
+        tableWidgetGridPedidos->setGeometry(QRect(230, 72, 621, 391));
         label_25 = new QLabel(tabClientePedidos);
         label_25->setObjectName(QString::fromUtf8("label_25"));
+        label_25->setGeometry(QRect(11, 11, 251, 54));
+        widget = new QWidget(tabClientePedidos);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(30, 200, 156, 98));
+        verticalLayout_11 = new QVBoxLayout(widget);
+        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
+        verticalLayout_11->setContentsMargins(0, 0, 0, 0);
+        label_10 = new QLabel(widget);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
 
-        gridLayout_2->addWidget(label_25, 0, 0, 1, 1);
+        verticalLayout_11->addWidget(label_10);
+
+        lineEditConsultarPedido = new QLineEdit(widget);
+        lineEditConsultarPedido->setObjectName(QString::fromUtf8("lineEditConsultarPedido"));
+
+        verticalLayout_11->addWidget(lineEditConsultarPedido);
+
+        pushButtonConsultarPedido = new QPushButton(widget);
+        pushButtonConsultarPedido->setObjectName(QString::fromUtf8("pushButtonConsultarPedido"));
+
+        verticalLayout_11->addWidget(pushButtonConsultarPedido);
 
         tabWidgetCliente->addTab(tabClientePedidos, QString());
 
@@ -473,7 +490,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidgetCliente->setCurrentIndex(0);
+        tabWidgetCliente->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -514,12 +531,12 @@ public:
         QTableWidgetItem *___qtablewidgetitem = tableWidgetGridPedidos->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidgetGridPedidos->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Data", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "ID cliente", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidgetGridPedidos->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Valor (R$)", nullptr));
-        QTableWidgetItem *___qtablewidgetitem3 = tableWidgetGridPedidos->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Endere\303\247o", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Data", nullptr));
         label_25->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:24pt;\">Meus pedidos</span></p></body></html>", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">ID do pedido:</span></p></body></html>", nullptr));
+        pushButtonConsultarPedido->setText(QCoreApplication::translate("MainWindow", "Consultar", nullptr));
         tabWidgetCliente->setTabText(tabWidgetCliente->indexOf(tabClientePedidos), QCoreApplication::translate("MainWindow", "Page", nullptr));
     } // retranslateUi
 

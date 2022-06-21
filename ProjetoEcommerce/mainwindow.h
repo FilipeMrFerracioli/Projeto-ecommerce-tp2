@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <admin.h>
 #include <utils.h>
+#include <QDateTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +21,7 @@ public:
     void setComboBoxProdutos();
     void setComboBoxResumoPedidos();
     void limparQuantidade();
+    void setGridPedidos(minhaNamespace::LLDE<minhaNamespace::Pedido> lista);
 private slots:
     void on_pushButtonAddCarrinho_clicked();
 
@@ -28,6 +30,10 @@ private slots:
     void on_comboBoxResumoPedido_activated(int index);
 
     void on_pushButtonRemoverCarrinho_clicked();
+
+    void on_pushButtonProsseguir_clicked();
+
+    void on_pushButtonConsultarPedido_clicked();
 
 private:
     Ui::MainWindow *ui;

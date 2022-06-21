@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //        Admin adm;
-    //        adm.exec();
+            Admin adm;
+            adm.exec();
     setComboBoxProdutos();
 }
 
@@ -21,6 +21,30 @@ void MainWindow::setComboBoxProdutos() {
         QString id = listaProdutos[i].split(";")[0];
 
         ui->comboBoxListaProduto->addItem(produto, id.toInt());
+    }
+}
+
+// Grid pedidos
+void MainWindow::setGridPedidos(minhaNamespace::LLDE<minhaNamespace::Pedido> lista)
+{
+    ui->tableWidgetGridPedidos->clearContents();
+    ui->tableWidgetGridPedidos->setRowCount(0);
+
+    for(int i = 0; i < lista.getQuantidadeDeElementos(); i++) {
+        int linha = ui->tableWidgetGridPedidos->rowCount();
+        ui->tableWidgetGridPedidos->insertRow(linha);
+
+        QTableWidgetItem *id = 0;
+        id = new QTableWidgetItem(lista[i].getIdPedido());
+        ui->tableWidgetGridPedidos->setItem(linha, 0, id);
+
+        QTableWidgetItem *idCliente = 0;
+        idCliente = new QTableWidgetItem(lista[i].getIdCliente());
+        ui->tableWidgetGridPedidos->setItem(linha, 1, idCliente);
+
+        QTableWidgetItem *data = 0;
+        data = new QTableWidgetItem(lista[i].getDataCompra());
+        ui->tableWidgetGridPedidos->setItem(linha, 2, data);
     }
 }
 
@@ -124,7 +148,72 @@ void MainWindow::on_comboBoxResumoPedido_activated(int index)
 void MainWindow::on_pushButtonRemoverCarrinho_clicked()
 {
     try {
-//        carrinhoCompras.setRmProduto(ui)
+        //        carrinhoCompras.setRmProduto(ui)
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonProsseguir_clicked()
+{
+    try {
+        if(!carrinhoCompras.getListaProdutos().length()) throw QString("Carrinho vazio");
+
+        Pedido pedido = Pedido();
+
+        QDateTime data = QDateTime::currentDateTime();
+
+        QString id = QInputDialog::getText(this, "Cliente", "ID:");
+
+        pedido.setIdPedido(GenerateID::generateIDPedido());
+
+        pedido.setDdataCompra(data.toString());
+
+        pedido.realizarPedido(id, carrinhoCompras);
+
+        //        carrinhoCompras = CarrinhoCompras();
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonConsultarPedido_clicked()
+{
+    try {
+        //        Adminstrador adm = Adminstrador();
+        Pedido ped = Pedido();
+
+        ped.setIdPedido(ui->lineEditConsultarPedido->text());
+
+        //        QMessageBox::information(this, "Consultar", ped.consultar(ped.getIdPedido(), true));
+        //        QMessageBox::information(this, "Consultar", adm.consultar(ped, false));
+
+        //        Adminstrador adm = Adminstrador();
+        //        setGridPedidos(adm.getListaPedidos());
+        QStringList pedido = ped.consultar(ped.getIdPedido(), true).split(";");
+
+
+        ui->tableWidgetGridPedidos->clearContents();
+        ui->tableWidgetGridPedidos->setRowCount(0);
+
+        //        for(int i = 0; i < lista.getQuantidadeDeElementos(); i++) {
+        int linha = ui->tableWidgetGridPedidos->rowCount();
+        ui->tableWidgetGridPedidos->insertRow(linha);
+
+        QTableWidgetItem *id = 0;
+        id = new QTableWidgetItem(pedido[0]);
+        ui->tableWidgetGridPedidos->setItem(linha, 0, id);
+
+        QTableWidgetItem *idCliente = 0;
+        idCliente = new QTableWidgetItem(pedido[1]);
+        ui->tableWidgetGridPedidos->setItem(linha, 1, idCliente);
+
+        QTableWidgetItem *data = 0;
+        data = new QTableWidgetItem(pedido[2]);
+        ui->tableWidgetGridPedidos->setItem(linha, 2, data);
+        //        }
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }

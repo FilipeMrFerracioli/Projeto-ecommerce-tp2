@@ -45,11 +45,6 @@ public:
     QWidget *tabPedido;
     QGridLayout *gridLayout_5;
     QTableWidget *tableWidgetPedidos;
-    QGridLayout *gridLayout_3;
-    QPushButton *pushButtonAttPedido;
-    QPushButton *pushButtonAddPedido;
-    QPushButton *pushButtonRmPedido;
-    QPushButton *pushButtonLocPedido;
 
     void setupUi(QDialog *Admin)
     {
@@ -151,46 +146,17 @@ public:
         gridLayout_5 = new QGridLayout(tabPedido);
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
         tableWidgetPedidos = new QTableWidget(tabPedido);
-        if (tableWidgetPedidos->columnCount() < 5)
-            tableWidgetPedidos->setColumnCount(5);
+        if (tableWidgetPedidos->columnCount() < 3)
+            tableWidgetPedidos->setColumnCount(3);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
         tableWidgetPedidos->setHorizontalHeaderItem(0, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
         tableWidgetPedidos->setHorizontalHeaderItem(1, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
         tableWidgetPedidos->setHorizontalHeaderItem(2, __qtablewidgetitem11);
-        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        tableWidgetPedidos->setHorizontalHeaderItem(3, __qtablewidgetitem12);
-        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        tableWidgetPedidos->setHorizontalHeaderItem(4, __qtablewidgetitem13);
         tableWidgetPedidos->setObjectName(QString::fromUtf8("tableWidgetPedidos"));
 
         gridLayout_5->addWidget(tableWidgetPedidos, 0, 0, 2, 1);
-
-        gridLayout_3 = new QGridLayout();
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        pushButtonAttPedido = new QPushButton(tabPedido);
-        pushButtonAttPedido->setObjectName(QString::fromUtf8("pushButtonAttPedido"));
-
-        gridLayout_3->addWidget(pushButtonAttPedido, 1, 0, 1, 1);
-
-        pushButtonAddPedido = new QPushButton(tabPedido);
-        pushButtonAddPedido->setObjectName(QString::fromUtf8("pushButtonAddPedido"));
-
-        gridLayout_3->addWidget(pushButtonAddPedido, 0, 0, 1, 1);
-
-        pushButtonRmPedido = new QPushButton(tabPedido);
-        pushButtonRmPedido->setObjectName(QString::fromUtf8("pushButtonRmPedido"));
-
-        gridLayout_3->addWidget(pushButtonRmPedido, 2, 0, 1, 1);
-
-        pushButtonLocPedido = new QPushButton(tabPedido);
-        pushButtonLocPedido->setObjectName(QString::fromUtf8("pushButtonLocPedido"));
-
-        gridLayout_3->addWidget(pushButtonLocPedido, 3, 0, 1, 1);
-
-
-        gridLayout_5->addLayout(gridLayout_3, 0, 1, 1, 1);
 
         tabWidgetAdminstrador->addTab(tabPedido, QString());
 
@@ -242,14 +208,6 @@ public:
         ___qtablewidgetitem10->setText(QCoreApplication::translate("Admin", "Usu\303\241rio", nullptr));
         QTableWidgetItem *___qtablewidgetitem11 = tableWidgetPedidos->horizontalHeaderItem(2);
         ___qtablewidgetitem11->setText(QCoreApplication::translate("Admin", "Descri\303\247\303\243o", nullptr));
-        QTableWidgetItem *___qtablewidgetitem12 = tableWidgetPedidos->horizontalHeaderItem(3);
-        ___qtablewidgetitem12->setText(QCoreApplication::translate("Admin", "Qtd", nullptr));
-        QTableWidgetItem *___qtablewidgetitem13 = tableWidgetPedidos->horizontalHeaderItem(4);
-        ___qtablewidgetitem13->setText(QCoreApplication::translate("Admin", "Valor", nullptr));
-        pushButtonAttPedido->setText(QCoreApplication::translate("Admin", "Atualizar", nullptr));
-        pushButtonAddPedido->setText(QCoreApplication::translate("Admin", "Adicionar", nullptr));
-        pushButtonRmPedido->setText(QCoreApplication::translate("Admin", "Remover", nullptr));
-        pushButtonLocPedido->setText(QCoreApplication::translate("Admin", "Localizar", nullptr));
         tabWidgetAdminstrador->setTabText(tabWidgetAdminstrador->indexOf(tabPedido), QCoreApplication::translate("Admin", "Page", nullptr));
     } // retranslateUi
 

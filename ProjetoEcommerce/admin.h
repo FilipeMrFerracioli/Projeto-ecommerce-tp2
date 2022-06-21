@@ -24,6 +24,7 @@ public:
 
     void setGridCliente(minhaNamespace::LLDE<minhaNamespace::Cliente> lista);
     void setGridProduto(minhaNamespace::LLDE<minhaNamespace::Produto> lista);
+    void setGridPedidos(minhaNamespace::LLDE<minhaNamespace::Pedido> lista);
 private slots:
     void on_pushButtonAddCliente_clicked();
 
