@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidgetCliente">
       <property name="currentIndex">
-       <number>3</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_Home">
        <attribute name="title">
@@ -167,137 +167,82 @@
        <attribute name="title">
         <string>Page</string>
        </attribute>
-       <widget class="QWidget" name="layoutWidget_6">
-        <property name="geometry">
-         <rect>
-          <x>400</x>
-          <y>50</y>
-          <width>321</width>
-          <height>368</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_19">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_20">
-           <item>
-            <widget class="QLabel" name="label_23">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Cadastre-se&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_17">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Nome&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEditCadastroNome"/>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_21">
-           <item>
-            <widget class="QLabel" name="label_18">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Endereço&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEditCadastroEndereco"/>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_22">
-           <item>
-            <widget class="QLabel" name="label_19">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Telefone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEditCadastroTelefone"/>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_23">
-           <item>
-            <widget class="QLabel" name="label_20">
-             <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;CPF&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEditCadastroCPF"/>
-           </item>
-           <item>
-            <widget class="QPushButton" name="pushButtonRegistrar">
-             <property name="text">
-              <string>CADASTRAR</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="layoutWidget_7">
-        <property name="geometry">
-         <rect>
-          <x>130</x>
-          <y>50</y>
-          <width>156</width>
-          <height>159</height>
-         </rect>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_24">
-         <item>
-          <widget class="QLabel" name="label_22">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_21">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;CPF&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="lineEditCadastroCPF_2"/>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonLogin">
-           <property name="text">
-            <string>LOGIN</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="Line" name="line">
-        <property name="geometry">
-         <rect>
-          <x>290</x>
-          <y>50</y>
-          <width>111</width>
-          <height>361</height>
-         </rect>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout_19">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_20">
+            <item>
+             <widget class="QLabel" name="label_23">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;Cadastre-se&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Nome&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEditCadastroNome"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_21">
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Endereço&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEditCadastroEndereco"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_22">
+            <item>
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Telefone&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEditCadastroTelefone"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_23">
+            <item>
+             <widget class="QLabel" name="label_20">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;CPF&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEditCadastroCPF"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonRegistrar">
+              <property name="text">
+               <string>CADASTRAR</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_Acc">
        <attribute name="title">
@@ -330,7 +275,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEditAccNome"/>
+            <widget class="QLineEdit" name="lineEditAttNome"/>
            </item>
           </layout>
          </item>
@@ -344,7 +289,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEditAccEndereco"/>
+            <widget class="QLineEdit" name="lineEditAttEndereco"/>
            </item>
           </layout>
          </item>
@@ -358,7 +303,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEditAccTelefone"/>
+            <widget class="QLineEdit" name="lineEditAttTelefone"/>
            </item>
           </layout>
          </item>
@@ -372,7 +317,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEditAccCPF"/>
+            <widget class="QLineEdit" name="lineEditAttCPF"/>
            </item>
           </layout>
          </item>
@@ -389,16 +334,38 @@
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QPushButton" name="pushButtonAccCancelar">
+          <widget class="QPushButton" name="pushButtonAttSalvar">
            <property name="text">
-            <string>CANCELAR</string>
+            <string>SALVAR</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>1</x>
+          <y>191</y>
+          <width>241</width>
+          <height>98</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_12">
+         <item>
+          <widget class="QLabel" name="label_11">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;ID:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButtonAccSalvar">
+          <widget class="QLineEdit" name="lineEditAttID"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonAttAtt">
            <property name="text">
-            <string>SALVAR</string>
+            <string>Atualizar</string>
            </property>
           </widget>
          </item>

@@ -35,6 +35,12 @@ private slots:
 
     void on_pushButtonConsultarPedido_clicked();
 
+    void on_pushButtonRegistrar_clicked();
+
+    void on_pushButtonAttAtt_clicked();
+
+    void on_pushButtonAttSalvar_clicked();
+
 private:
     Ui::MainWindow *ui;
     minhaNamespace::CarrinhoCompras carrinhoCompras;

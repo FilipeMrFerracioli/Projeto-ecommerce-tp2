@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-            Admin adm;
-            adm.exec();
+    Admin adm;
+    adm.exec();
     setComboBoxProdutos();
 }
 
@@ -172,6 +172,8 @@ void MainWindow::on_pushButtonProsseguir_clicked()
 
         pedido.realizarPedido(id, carrinhoCompras);
 
+        QMessageBox::information(this, "Pedido", "Pedido realizado com sucesso");
+
         //        carrinhoCompras = CarrinhoCompras();
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
@@ -214,6 +216,71 @@ void MainWindow::on_pushButtonConsultarPedido_clicked()
         data = new QTableWidgetItem(pedido[2]);
         ui->tableWidgetGridPedidos->setItem(linha, 2, data);
         //        }
+
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonRegistrar_clicked()
+{
+    try {
+        minhaNamespace::Adminstrador adm = minhaNamespace::Adminstrador();
+
+        minhaNamespace::Cliente cliente = minhaNamespace::Cliente(ui->lineEditCadastroNome->text(),
+                                                                  ui->lineEditCadastroEndereco->text(),
+                                                                  ui->lineEditCadastroTelefone->text(),
+                                                                  ui->lineEditCadastroCPF->text());
+
+        adm.criar(cliente);
+
+        QMessageBox::information(this, "Cadastro", "Cadastro realizado com sucesso");
+    } catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonAttAtt_clicked()
+{
+    try {
+        Adminstrador adm = Adminstrador();
+        minhaNamespace::Cliente cli = minhaNamespace::Cliente();
+        cli.setCpf(ui->lineEditAttID->text());
+        QStringList listaCliente = adm.consultar(cli, true).split(";");
+
+        ui->lineEditAttID->setText(listaCliente[0]);
+        ui->lineEditAttNome->setText(listaCliente[1]);
+        ui->lineEditAttEndereco->setText(listaCliente[2]);
+        ui->lineEditAttTelefone->setText(listaCliente[3]);
+        ui->lineEditAttCPF->setText(listaCliente[4]);
+
+        //        ui->lineEditAttID->setEnabled(false);
+        ui->lineEditAttNome->setEnabled(true);
+        ui->lineEditAttEndereco->setEnabled(true);
+        ui->lineEditAttTelefone->setEnabled(true);
+        ui->lineEditAttCPF->setEnabled(false);
+
+        QMessageBox::information(this, "Cadastro", "Alterado com sucesso");
+    }  catch (QString &erro) {
+        QMessageBox::information(this, "Erro", erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonAttSalvar_clicked()
+{
+    try {
+        Adminstrador adm = Adminstrador();
+        minhaNamespace::Cliente clienteAtt = minhaNamespace::Cliente();
+
+        clienteAtt.setNome(ui->lineEditAttNome->text());
+        clienteAtt.setEndereco(ui->lineEditAttEndereco->text());
+        clienteAtt.setTelefone(ui->lineEditAttTelefone->text());
+        clienteAtt.setCpf(ui->lineEditAttCPF->text());
+
+        adm.atualizar(clienteAtt);
     }  catch (QString &erro) {
         QMessageBox::information(this, "Erro", erro);
     }
