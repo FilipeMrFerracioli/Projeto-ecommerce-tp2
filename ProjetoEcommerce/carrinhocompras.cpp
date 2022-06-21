@@ -9,6 +9,19 @@ CarrinhoCompras::CarrinhoCompras():
 
 }
 
+void CarrinhoCompras::setAddProduto(QString idProduto, int qtdProduto)
+{
+    Produto produto = Produto();
+
+    QString strProd = produto.consultar(idProduto, true);
+
+    produto = produto.desmontar(strProd);
+    produto.setQtdProdutos(qtdProduto);
+
+    listaProdutos.inserirInicio(produto);
+    setAddTotalCompra(produto.getPrecoUn() * qtdProduto);
+}
+
 /*void CarrinhoCompras::setAddProduto(long idProduto, int qtdProduto)
 {
     std::ifstream arquivo;
@@ -38,6 +51,28 @@ CarrinhoCompras::CarrinhoCompras():
 
     arquivo.close();
 }*/
+
+void CarrinhoCompras::setRmProduto(QString idProduto, int qtdProduto)
+{
+    if(listaProdutos.getQuantidadeDeElementos() == 0) throw QString("Carrinho de compras vazio");
+
+    for(int i = 0; i < listaProdutos.getQuantidadeDeElementos(); i++) {
+        if(listaProdutos[i].getIdProduto() == idProduto) {
+            if(listaProdutos[i].getQtdProdutos() < qtdProduto) throw QString("Impossível remover a quantidade de produtos");
+
+            if(listaProdutos[i].getQtdProdutos() == qtdProduto) {
+                setRmTotalCompra(listaProdutos[i].getPrecoUn() * qtdProduto);
+
+                listaProdutos.retirarPos(i);
+
+                return;
+            }
+
+            listaProdutos[i].setQtdProdutos(listaProdutos[i].getQtdProdutos() - qtdProduto);
+            setRmTotalCompra(listaProdutos[i].getPrecoUn() * (qtdProduto - listaProdutos[i].getQtdProdutos()));
+        }
+    }
+}
 
 /*void CarrinhoCompras::setRmProduto(long idProduto, int qtdProduto)
 {
@@ -74,6 +109,22 @@ void CarrinhoCompras::setRmTotalCompra(double preco)
 double CarrinhoCompras::getTotalCompra()
 {
     return totalCompra;
+}
+
+QString CarrinhoCompras::getListaProdutos()
+{
+    if(listaProdutos.getQuantidadeDeElementos() == 0) throw QString("Carrinho de compras vazio");
+
+    QString res = "";
+    for(int i = 0; i < listaProdutos.getQuantidadeDeElementos(); i++) {
+        Produto prod = listaProdutos[i];
+
+        res += prod.montar();
+
+        if(i < listaProdutos.getQuantidadeDeElementos() - 1) res += "\n";
+    }
+
+    return res;
 }
 
 /*QString CarrinhoCompras::getListaProdutos()

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <admin.h>
+#include <utils.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +17,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void setComboBoxProdutos();
 private:
     Ui::MainWindow *ui;
 };

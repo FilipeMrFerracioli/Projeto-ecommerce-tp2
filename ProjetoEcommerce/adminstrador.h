@@ -36,6 +36,7 @@ public:
 
     LLDE<Cliente> getListaClientes();
     LLDE<Produto> getListaProdutos();
+    LLDE<Pedido> getListaPedidos();
 };
 }
 

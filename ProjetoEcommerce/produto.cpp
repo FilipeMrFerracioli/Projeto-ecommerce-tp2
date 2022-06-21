@@ -20,11 +20,6 @@ Produto::Produto(QString descricao, int qtdProdutos, double precoUn):
     setDescricao(descricao);
     setQtdProdutos(qtdProdutos);
     setPrecoUn(precoUn);
-//    setIdProduto();
-    //    Utils::verificarSeIDNaoExiste(nomeArquivo, GenerateID::generateIDProduto());
-    //    while(Utils::verificarIDRepetido())
-    //    if(Utils::verificarIDRepetido(nomeArquivo, GenerateID::generateIDProduto())) Produto(descricao, qtdProdutos, precoUn);
-
 }
 
 void Produto::setIdProduto(QString idProduto)
@@ -102,11 +97,7 @@ QString Produto::getProduto(QString idProduto, QString descricao, int qtdProduto
 
 void Produto::criar()
 {
-//    if(idProduto.isEmpty() || idProduto.length() != 11) throw QString("ID inválido");
-
     Utils::verificarIDRepetido(nomeArquivo, getIdProduto());
-
-//    throw montar();
 
     Utils::salvarArquivo(nomeArquivo, montar(), true);
 }
@@ -195,12 +186,15 @@ Produto Produto::desmontar(QString objeto)
     if(objeto.isEmpty()) throw QString("Erro ao converter para Produto");
 
     QStringList objProd = objeto.split(";"); // id;descricao;qtdProdutos;precoUn
-//    throw QString(objProd[0]);
+
+    //    pode dar errado
+    if(objProd.length() != 4) throw QString("Produto inválido!");
+    //    pode dar errado
+
     Produto pd = Produto(objProd[1], objProd[2].toInt(), objProd[3].toDouble());
     pd.setIdProduto(objProd[0]);
 
     return pd;
-//    return Produto(objProd[1], objProd[2].toInt(), objProd[3].toDouble());
 }
 
 }

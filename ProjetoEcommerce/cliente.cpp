@@ -99,11 +99,11 @@ QString Cliente::getCliente(QString id, QString nome, QString endereco, QString 
     return res;
 }
 
-QString Cliente::consultarPedidos(long id)
-{
-    Pedido ped;
-    return ped.consultar(id);
-}
+//QString Cliente::consultarPedidos(long id)
+//{
+//    Pedido ped;
+//    return ped.consultar(id);
+//}
 
 void Cliente::criar()
 {

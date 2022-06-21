@@ -3,37 +3,43 @@
 namespace minhaNamespace {
 
 Pedido::Pedido():
-    idPedido(0),
-    idCliente(0),
+    idPedido(""),
+    idCliente(""),
     dataCompra(""),
     carrinhoCompras()
 {
 
 }
 
-Pedido::Pedido(long idPedido, long idCliente, QString dataCompra):
-    idPedido(0),
-    idCliente(0),
+Pedido::Pedido(QString idPedido, QString idCliente, QString dataCompra):
+    idPedido(""),
+    idCliente(""),
     dataCompra(""),
     carrinhoCompras()
 {
-    if(idPedido == 0) throw QString("idPedido mal formatado");
+    setIdPedido(idPedido);
+    setIdCliente(idCliente);
+    setDdataCompra(dataCompra);
+}
+
+void Pedido::setIdPedido(QString idPedido)
+{
+    if(idPedido == "") throw QString("idPedido mal formatado");
     this->idPedido = idPedido;
-
-    if(idCliente == 0) throw QString("idCliente mal formatado");
-    this->idCliente = idCliente;
-
-    if(dataCompra == "") throw QString("dataCompra mal formatado");
-    this->dataCompra = dataCompra;
 }
 
-void Pedido::setIdCliente(long idCliente)
+QString Pedido::getIdPedido()
 {
-    if(idCliente == 0) throw QString("idCliente mal formatado");
+    return idPedido;
+}
+
+void Pedido::setIdCliente(QString idCliente)
+{
+    if(idCliente == "") throw QString("idCliente mal formatado");
     this->idCliente = idCliente;
 }
 
-long Pedido::getIdCliente()
+QString Pedido::getIdCliente()
 {
     return idCliente;
 }
@@ -49,79 +55,118 @@ QString Pedido::getDataCompra()
     return dataCompra;
 }
 
-QString Pedido::realizarPedido()
+QString Pedido::getPedido(QString idPedido, QString idCliente, QString dataCompra, bool naoFormatado)
 {
-    std::ofstream arquivo;
-
-    QString nomeDoArquivo = "basePedido.txt";
-
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
-
-
-    arquivo.open(nomeDoArquivo.toStdString().c_str());
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
-
-    //arquivo << carrinhoCompras.getListaProdutos().toStdString().c_str() << std::endl;
-
-    arquivo.close();
-
-    return QString::number(idPedido);
-}
-
-QString Pedido::consultar(long id)
-{
-    std::ifstream arquivo;
-
-    QString nomeDoArquivo = "basePedido.txt";
-
-    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não encontrado.");
-
-    arquivo.open(nomeDoArquivo.toStdString().c_str());
-
-    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
-
-    std::string linha = "";
-
     QString res = "";
-    while(!arquivo.eof()) {
-        std::getline(arquivo, linha);
 
-        Pedido ped = desmontar(QString::fromStdString(linha));
-        if(ped.idCliente == id) {
-            //            res += ped.montar();
-            QStringList linhaPedido = ped.montar().split(";");
-            res += "ID: " + linhaPedido[0] + "\n";
-            res += "ID Cliente: " + linhaPedido[1] + "\n";
-            res += "Data: " + linhaPedido[2];
+    if(naoFormatado) {
+        res += idPedido + ";";
+        res += idCliente + ";";
+        res += dataCompra + ";";
 
-            res += "\n'";
-        }
+        return res;
     }
 
-    arquivo.close();
+    res += "ID: " + idPedido + "\n";
+    res += "ID cliente: " + idCliente + "\n";
+    res += "Data da compra: " + dataCompra;
 
     return res;
 }
 
-QString Pedido::montar() // idPedido;idCliente;dataCompra
+//QString Pedido::realizarPedido()
+//{
+//    std::ofstream arquivo;
+
+//    QString nomeDoArquivo = "basePedido.txt";
+
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+
+//    arquivo.open(nomeDoArquivo.toStdString().c_str());
+
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser criado.");
+
+//    //arquivo << carrinhoCompras.getListaProdutos().toStdString().c_str() << std::endl;
+
+//    arquivo.close();
+
+//    return QString::number(idPedido);
+//}
+
+//QString Pedido::consultar(QString id)
+//{
+//    std::ifstream arquivo;
+
+//    QString nomeDoArquivo = "basePedido.txt";
+
+//    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não encontrado.");
+
+//    arquivo.open(nomeDoArquivo.toStdString().c_str());
+
+//    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
+
+//    std::string linha = "";
+
+//    QString res = "";
+//    while(!arquivo.eof()) {
+//        std::getline(arquivo, linha);
+
+//        Pedido ped = desmontar(QString::fromStdString(linha));
+//        if(ped.idCliente == id) {
+//            //            res += ped.montar();
+//            QStringList linhaPedido = ped.montar().split(";");
+//            res += "ID: " + linhaPedido[0] + "\n";
+//            res += "ID Cliente: " + linhaPedido[1] + "\n";
+//            res += "Data: " + linhaPedido[2];
+
+//            res += "\n'";
+//        }
+//    }
+
+//    arquivo.close();
+
+//    return res;
+//}
+
+QString Pedido::consultar(QString idPedido, bool naoFormatado) {
+    if(idPedido.isEmpty()) throw QString("ID inválido");
+
+    Utils::verificarSeIDNaoExiste(nomeArquivo, idPedido);
+
+    QStringList lista = Utils::abrirArquivo(nomeArquivo);
+
+    QString res = "";
+    for(int i = 0; i < lista.length(); i++) {
+        Pedido ped = desmontar(lista[i]);
+        if(ped.getIdPedido() == idPedido) {
+            return res = getPedido(ped.getIdPedido(), ped.getIdCliente(), ped.getDataCompra(), naoFormatado);
+        }
+    }
+
+    return QString("O pedido não existe");
+}
+
+QString Pedido::montar()
 {
     QString objeto = "";
 
-    objeto += QString::number(idPedido) + ";";
-    objeto += QString::number(idCliente) + ";";
-    objeto += dataCompra;
+    objeto += idPedido + ";";
+    objeto += idCliente + ";";
+    objeto += dataCompra + ";";
 
-    return objeto;
+    return objeto; // idPedido;idCliente;dataCompra
 }
 
-Pedido Pedido::desmontar(QString objeto) // (long)idPedido;(long)idCliente;(QString)dataCompra
+Pedido Pedido::desmontar(QString objeto)
 {
     if(objeto.isEmpty()) throw QString("Erro ao converter para Pedido");
 
-    QStringList objPed = objeto.split(";");
+    QStringList objPed = objeto.split(";"); // idPedido;idCliente;dataCompra
 
-    return Pedido(objPed[0].toLong(), objPed[1].toLong(), objPed[2]);
+    //    Pedido ped = Pedido(objPed[1], objPed[2], objPed[3]);
+
+    return Pedido(objPed[0], objPed[1], objPed[2]);
 }
 
 }

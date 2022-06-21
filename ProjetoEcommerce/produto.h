@@ -10,7 +10,7 @@
 #include <generateid.h>
 
 namespace minhaNamespace {
-class Produto : public ITransformarDados<Produto>/*, public ICRUD*/
+class Produto : public ITransformarDados<Produto>
 {
 private:
     QString idProduto;
@@ -42,6 +42,8 @@ public:
     QString consultar(QString idProduto, bool naoFormatado = 0);
     void atualizar(Produto produto);
     void deletar(QString idProduto);
+
+
 
     virtual QString montar();
     virtual Produto desmontar(QString objeto);

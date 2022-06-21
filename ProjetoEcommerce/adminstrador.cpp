@@ -40,7 +40,7 @@ QString Adminstrador::consultar(Cliente cliente, bool naoFormatado)
 
 QString Adminstrador::consultar(Produto produto, bool naoFormatado)
 {
-//    throw produto.getIdProduto();
+    //    throw produto.getIdProduto();
     return produto.consultar(produto.getIdProduto(), naoFormatado);
 }
 
@@ -255,6 +255,43 @@ LLDE<Produto> Adminstrador::getListaProdutos()
             prod.setIdProduto(linha[0]);
 
             aux.inserirInicio(prod);
+        }
+    }
+
+    arquivo.close();
+
+    return aux;
+}
+
+LLDE<Pedido> Adminstrador::getListaPedidos()
+{
+    std::ifstream arquivo;
+
+    QString nomeDoArquivo = "basePedido.txt";
+
+    if(nomeDoArquivo.isEmpty()) throw QString("Arquivo não selecionado.");
+
+    arquivo.open(nomeDoArquivo.toStdString().c_str());
+
+    if(!arquivo.is_open()) throw QString("Erro: arquivo não pode ser aberto.");
+
+    std::string linha = "";
+
+    LLDE<Pedido> aux;
+
+    while(!arquivo.eof()) {
+        std::getline(arquivo, linha);
+
+        QString line = QString::fromStdString(linha);
+
+        if(!line.isEmpty()) {
+            QStringList linha;
+
+            linha = line.split(";");
+
+            Pedido ped = Pedido(linha[0], linha[1], linha[2]);
+
+            aux.inserirInicio(ped);
         }
     }
 

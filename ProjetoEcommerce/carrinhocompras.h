@@ -15,8 +15,8 @@ public:
     //    CarrinhoCompras();
     ~CarrinhoCompras() {};
 
-    void setAddProduto(long idProduto, int qtdProduto);
-    void setRmProduto(long idProduto, int qtdProduto);
+    void setAddProduto(QString idProduto, int qtdProduto);
+    void setRmProduto(QString idProduto, int qtdProduto);
 
     void setAddTotalCompra(double preco);
     void setRmTotalCompra(double preco);
